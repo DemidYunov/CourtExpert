@@ -1,12 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\CourtExpert",
-    "\\CourtExpert\\LoginAndRegistration",
-    "\\CourtExpert\\obj",
-    "\\CourtExpert\\Properties",
-    "\\CourtExpert\\UsersWindow"
+    ""
   ],
-  "SelectedNode": "\\CourtExpert\\LoginAndRegistration\\Registration.xaml",
+  "SelectedNode": "\\CourtExpert.csproj",
   "PreviewInSolutionExplorer": false
 }

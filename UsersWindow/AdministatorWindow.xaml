@@ -1,0 +1,83 @@
+﻿<Window x:Class="CourtExpert.AdministatorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourtExpert"
+        mc:Ignorable="d"
+        Title="Администратор" Height="450" Width="800" FontFamily="Courier new">
+    <Window.Resources>
+        <Style TargetType="TabItem">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="#FFE5E5E5" />
+        </Style>
+    </Window.Resources>
+    <TabControl x:Name="TabControlMenu" TabStripPlacement ="Left" >
+        <TabItem Header="Начальная страница">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Row="1">
+                    <DataGrid x:Name="DataGrid" AutoGenerateColumns="False" x:FieldModifier="public" ColumnWidth="*">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Дело" Binding="{Binding id}" />
+                            <DataGridTextColumn Header="Группа" Binding="{Binding id}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Список дел">
+            <DockPanel>
+                <DataGrid Name="dgCourt" AutoGenerateColumns="False" x:FieldModifier="public" ColumnWidth="*">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding id}" />
+                        <DataGridTextColumn Header="Название" Binding="{Binding id}"/>
+                        <DataGridTextColumn Header="Тип работы" Binding="{Binding id}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="Работники">
+            <DockPanel>
+                <DataGrid Name="dgEmployes" AutoGenerateColumns="False" x:FieldModifier="public" ColumnWidth="*">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding id}" />
+                        <DataGridTextColumn Header="Имя" Binding="{Binding id}"/>
+                        <DataGridTextColumn Header="Фамилия" Binding="{Binding id}"/>
+                        <DataGridTextColumn Header="Отчество" Binding="{Binding id}"/>
+                        <DataGridTextColumn Header="Специальность" Binding="{Binding id}"/>
+                        <DataGridTextColumn Header="Список работ" Binding="{Binding id}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="Создание дела">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1">
+                    <Label >Добавить дело</Label>
+                    <Button x:Name="ButtonIndividualPerson" Content="Физическое лицо" Click="ButtonIndividualPersonClick"/>
+                    <Button x:Name="ButtonLegalEntity" Content="Юридическое лицо" Click="ButtonLegalEntityClick"/>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Настройки"/>
+    </TabControl>
+</Window>
