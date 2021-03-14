@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourtExpert.FormsToFillOut;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,18 @@ namespace CourtExpert
         public AdministatorWindow()
         {
             InitializeComponent();
+        }
+
+        private void ButtonLegalEntityClick(object sender, RoutedEventArgs e)
+        {
+            LegalEntityWindow form2 = new LegalEntityWindow();
+            form2.Show();
+        }
+
+        private void ButtonIndividualPersonClick(object sender, RoutedEventArgs e)
+        {
+            PersoneClientWindow personeClientWindow = new PersoneClientWindow();
+            personeClientWindow.Show();
         }
     }
 }

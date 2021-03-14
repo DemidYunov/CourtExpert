@@ -40,13 +40,17 @@ namespace CourtExpert {
         
         private FilesDataTable tableFiles;
         
-        private PassportInfoDataTable tablePassportInfo;
+        private JurdicalClientsDataTable tableJurdicalClients;
+        
+        private PersoneClientsDataTable tablePersoneClients;
         
         private RolesDataTable tableRoles;
         
         private SelectedGroupDataTable tableSelectedGroup;
         
-        private global::System.Data.DataRelation relationPassportFK;
+        private global::System.Data.DataRelation relationJurdidicalClientNumberFK;
+        
+        private global::System.Data.DataRelation relationPersoneClientFK;
         
         private global::System.Data.DataRelation relationTypeClientFK;
         
@@ -118,8 +122,11 @@ namespace CourtExpert {
                 if ((ds.Tables["Files"] != null)) {
                     base.Tables.Add(new FilesDataTable(ds.Tables["Files"]));
                 }
-                if ((ds.Tables["PassportInfo"] != null)) {
-                    base.Tables.Add(new PassportInfoDataTable(ds.Tables["PassportInfo"]));
+                if ((ds.Tables["JurdicalClients"] != null)) {
+                    base.Tables.Add(new JurdicalClientsDataTable(ds.Tables["JurdicalClients"]));
+                }
+                if ((ds.Tables["PersoneClients"] != null)) {
+                    base.Tables.Add(new PersoneClientsDataTable(ds.Tables["PersoneClients"]));
                 }
                 if ((ds.Tables["Roles"] != null)) {
                     base.Tables.Add(new RolesDataTable(ds.Tables["Roles"]));
@@ -229,9 +236,19 @@ namespace CourtExpert {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public PassportInfoDataTable PassportInfo {
+        public JurdicalClientsDataTable JurdicalClients {
             get {
-                return this.tablePassportInfo;
+                return this.tableJurdicalClients;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public PersoneClientsDataTable PersoneClients {
+            get {
+                return this.tablePersoneClients;
             }
         }
         
@@ -346,8 +363,11 @@ namespace CourtExpert {
                 if ((ds.Tables["Files"] != null)) {
                     base.Tables.Add(new FilesDataTable(ds.Tables["Files"]));
                 }
-                if ((ds.Tables["PassportInfo"] != null)) {
-                    base.Tables.Add(new PassportInfoDataTable(ds.Tables["PassportInfo"]));
+                if ((ds.Tables["JurdicalClients"] != null)) {
+                    base.Tables.Add(new JurdicalClientsDataTable(ds.Tables["JurdicalClients"]));
+                }
+                if ((ds.Tables["PersoneClients"] != null)) {
+                    base.Tables.Add(new PersoneClientsDataTable(ds.Tables["PersoneClients"]));
                 }
                 if ((ds.Tables["Roles"] != null)) {
                     base.Tables.Add(new RolesDataTable(ds.Tables["Roles"]));
@@ -436,10 +456,16 @@ namespace CourtExpert {
                     this.tableFiles.InitVars();
                 }
             }
-            this.tablePassportInfo = ((PassportInfoDataTable)(base.Tables["PassportInfo"]));
+            this.tableJurdicalClients = ((JurdicalClientsDataTable)(base.Tables["JurdicalClients"]));
             if ((initTable == true)) {
-                if ((this.tablePassportInfo != null)) {
-                    this.tablePassportInfo.InitVars();
+                if ((this.tableJurdicalClients != null)) {
+                    this.tableJurdicalClients.InitVars();
+                }
+            }
+            this.tablePersoneClients = ((PersoneClientsDataTable)(base.Tables["PersoneClients"]));
+            if ((initTable == true)) {
+                if ((this.tablePersoneClients != null)) {
+                    this.tablePersoneClients.InitVars();
                 }
             }
             this.tableRoles = ((RolesDataTable)(base.Tables["Roles"]));
@@ -454,7 +480,8 @@ namespace CourtExpert {
                     this.tableSelectedGroup.InitVars();
                 }
             }
-            this.relationPassportFK = this.Relations["PassportFK"];
+            this.relationJurdidicalClientNumberFK = this.Relations["JurdidicalClientNumberFK"];
+            this.relationPersoneClientFK = this.Relations["PersoneClientFK"];
             this.relationTypeClientFK = this.Relations["TypeClientFK"];
             this.relationCaseFK = this.Relations["CaseFK"];
             this.relationFilesFK = this.Relations["FilesFK"];
@@ -490,16 +517,22 @@ namespace CourtExpert {
             base.Tables.Add(this.tableExpertiseType);
             this.tableFiles = new FilesDataTable();
             base.Tables.Add(this.tableFiles);
-            this.tablePassportInfo = new PassportInfoDataTable();
-            base.Tables.Add(this.tablePassportInfo);
+            this.tableJurdicalClients = new JurdicalClientsDataTable();
+            base.Tables.Add(this.tableJurdicalClients);
+            this.tablePersoneClients = new PersoneClientsDataTable();
+            base.Tables.Add(this.tablePersoneClients);
             this.tableRoles = new RolesDataTable();
             base.Tables.Add(this.tableRoles);
             this.tableSelectedGroup = new SelectedGroupDataTable();
             base.Tables.Add(this.tableSelectedGroup);
-            this.relationPassportFK = new global::System.Data.DataRelation("PassportFK", new global::System.Data.DataColumn[] {
-                        this.tablePassportInfo.PassportIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableClients.PassportColumn}, false);
-            this.Relations.Add(this.relationPassportFK);
+            this.relationJurdidicalClientNumberFK = new global::System.Data.DataRelation("JurdidicalClientNumberFK", new global::System.Data.DataColumn[] {
+                        this.tableJurdicalClients.JurdicalClientIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableClients.JurdidicalClientNumberColumn}, false);
+            this.Relations.Add(this.relationJurdidicalClientNumberFK);
+            this.relationPersoneClientFK = new global::System.Data.DataRelation("PersoneClientFK", new global::System.Data.DataColumn[] {
+                        this.tablePersoneClients.PersoneClientIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableClients.PersoneClientNumberColumn}, false);
+            this.Relations.Add(this.relationPersoneClientFK);
             this.relationTypeClientFK = new global::System.Data.DataRelation("TypeClientFK", new global::System.Data.DataColumn[] {
                         this.tableClientType.TypeClientIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableClients.TypeClientColumn}, false);
@@ -588,7 +621,13 @@ namespace CourtExpert {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializePassportInfo() {
+        private bool ShouldSerializeJurdicalClients() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializePersoneClients() {
             return false;
         }
         
@@ -684,7 +723,10 @@ namespace CourtExpert {
         public delegate void FilesRowChangeEventHandler(object sender, FilesRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void PassportInfoRowChangeEventHandler(object sender, PassportInfoRowChangeEvent e);
+        public delegate void JurdicalClientsRowChangeEventHandler(object sender, JurdicalClientsRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void PersoneClientsRowChangeEventHandler(object sender, PersoneClientsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void RolesRowChangeEventHandler(object sender, RolesRowChangeEvent e);
@@ -701,13 +743,11 @@ namespace CourtExpert {
             
             private global::System.Data.DataColumn columnClientID;
             
-            private global::System.Data.DataColumn columnNumberINN;
+            private global::System.Data.DataColumn columnPersoneClientNumber;
             
-            private global::System.Data.DataColumn columnNumberSnils;
+            private global::System.Data.DataColumn columnJurdidicalClientNumber;
             
             private global::System.Data.DataColumn columnTypeClient;
-            
-            private global::System.Data.DataColumn columnPassport;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -752,17 +792,17 @@ namespace CourtExpert {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn NumberINNColumn {
+            public global::System.Data.DataColumn PersoneClientNumberColumn {
                 get {
-                    return this.columnNumberINN;
+                    return this.columnPersoneClientNumber;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn NumberSnilsColumn {
+            public global::System.Data.DataColumn JurdidicalClientNumberColumn {
                 get {
-                    return this.columnNumberSnils;
+                    return this.columnJurdidicalClientNumber;
                 }
             }
             
@@ -771,14 +811,6 @@ namespace CourtExpert {
             public global::System.Data.DataColumn TypeClientColumn {
                 get {
                     return this.columnTypeClient;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PassportColumn {
-                get {
-                    return this.columnPassport;
                 }
             }
             
@@ -819,19 +851,21 @@ namespace CourtExpert {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ClientsRow AddClientsRow(string NumberINN, string NumberSnils, ClientTypeRow parentClientTypeRowByTypeClientFK, PassportInfoRow parentPassportInfoRowByPassportFK) {
+            public ClientsRow AddClientsRow(PersoneClientsRow parentPersoneClientsRowByPersoneClientFK, JurdicalClientsRow parentJurdicalClientsRowByJurdidicalClientNumberFK, ClientTypeRow parentClientTypeRowByTypeClientFK) {
                 ClientsRow rowClientsRow = ((ClientsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        NumberINN,
-                        NumberSnils,
+                        null,
                         null,
                         null};
+                if ((parentPersoneClientsRowByPersoneClientFK != null)) {
+                    columnValuesArray[1] = parentPersoneClientsRowByPersoneClientFK[0];
+                }
+                if ((parentJurdicalClientsRowByJurdidicalClientNumberFK != null)) {
+                    columnValuesArray[2] = parentJurdicalClientsRowByJurdidicalClientNumberFK[0];
+                }
                 if ((parentClientTypeRowByTypeClientFK != null)) {
                     columnValuesArray[3] = parentClientTypeRowByTypeClientFK[0];
-                }
-                if ((parentPassportInfoRowByPassportFK != null)) {
-                    columnValuesArray[4] = parentPassportInfoRowByPassportFK[0];
                 }
                 rowClientsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowClientsRow);
@@ -863,10 +897,9 @@ namespace CourtExpert {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnClientID = base.Columns["ClientID"];
-                this.columnNumberINN = base.Columns["NumberINN"];
-                this.columnNumberSnils = base.Columns["NumberSnils"];
+                this.columnPersoneClientNumber = base.Columns["PersoneClientNumber"];
+                this.columnJurdidicalClientNumber = base.Columns["JurdidicalClientNumber"];
                 this.columnTypeClient = base.Columns["TypeClient"];
-                this.columnPassport = base.Columns["Passport"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -874,14 +907,12 @@ namespace CourtExpert {
             private void InitClass() {
                 this.columnClientID = new global::System.Data.DataColumn("ClientID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnClientID);
-                this.columnNumberINN = new global::System.Data.DataColumn("NumberINN", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNumberINN);
-                this.columnNumberSnils = new global::System.Data.DataColumn("NumberSnils", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNumberSnils);
+                this.columnPersoneClientNumber = new global::System.Data.DataColumn("PersoneClientNumber", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPersoneClientNumber);
+                this.columnJurdidicalClientNumber = new global::System.Data.DataColumn("JurdidicalClientNumber", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnJurdidicalClientNumber);
                 this.columnTypeClient = new global::System.Data.DataColumn("TypeClient", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTypeClient);
-                this.columnPassport = new global::System.Data.DataColumn("Passport", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPassport);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnClientID}, true));
                 this.columnClientID.AutoIncrement = true;
@@ -890,8 +921,6 @@ namespace CourtExpert {
                 this.columnClientID.AllowDBNull = false;
                 this.columnClientID.ReadOnly = true;
                 this.columnClientID.Unique = true;
-                this.columnNumberINN.MaxLength = 1;
-                this.columnNumberSnils.MaxLength = 1;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2085,8 +2114,8 @@ namespace CourtExpert {
                 this.columnUserID.AllowDBNull = false;
                 this.columnUserID.ReadOnly = true;
                 this.columnUserID.Unique = true;
-                this.columnLoginEmployee.MaxLength = 1;
-                this.columnPasswordEmployee.MaxLength = 1;
+                this.columnLoginEmployee.MaxLength = 50;
+                this.columnPasswordEmployee.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2640,7 +2669,7 @@ namespace CourtExpert {
                 this.columnTypeID.AllowDBNull = false;
                 this.columnTypeID.ReadOnly = true;
                 this.columnTypeID.Unique = true;
-                this.columnNameExpertiseType.MaxLength = 1;
+                this.columnNameExpertiseType.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2776,6 +2805,8 @@ namespace CourtExpert {
             
             private global::System.Data.DataColumn columnFilesID;
             
+            private global::System.Data.DataColumn columnNumberFile;
+            
             private global::System.Data.DataColumn columnContent;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2816,6 +2847,14 @@ namespace CourtExpert {
             public global::System.Data.DataColumn FilesIDColumn {
                 get {
                     return this.columnFilesID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NumberFileColumn {
+                get {
+                    return this.columnNumberFile;
                 }
             }
             
@@ -2864,10 +2903,11 @@ namespace CourtExpert {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public FilesRow AddFilesRow(byte[] Content) {
+            public FilesRow AddFilesRow(System.Guid NumberFile, byte[] Content) {
                 FilesRow rowFilesRow = ((FilesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
+                        NumberFile,
                         Content};
                 rowFilesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFilesRow);
@@ -2899,6 +2939,7 @@ namespace CourtExpert {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnFilesID = base.Columns["FilesID"];
+                this.columnNumberFile = base.Columns["NumberFile"];
                 this.columnContent = base.Columns["Content"];
             }
             
@@ -2907,6 +2948,8 @@ namespace CourtExpert {
             private void InitClass() {
                 this.columnFilesID = new global::System.Data.DataColumn("FilesID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFilesID);
+                this.columnNumberFile = new global::System.Data.DataColumn("NumberFile", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumberFile);
                 this.columnContent = new global::System.Data.DataColumn("Content", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContent);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -2917,6 +2960,7 @@ namespace CourtExpert {
                 this.columnFilesID.AllowDBNull = false;
                 this.columnFilesID.ReadOnly = true;
                 this.columnFilesID.Unique = true;
+                this.columnNumberFile.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3048,9 +3092,435 @@ namespace CourtExpert {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class PassportInfoDataTable : global::System.Data.TypedTableBase<PassportInfoRow> {
+        public partial class JurdicalClientsDataTable : global::System.Data.TypedTableBase<JurdicalClientsRow> {
             
-            private global::System.Data.DataColumn columnPassportID;
+            private global::System.Data.DataColumn columnJurdicalClientID;
+            
+            private global::System.Data.DataColumn columnOGRN;
+            
+            private global::System.Data.DataColumn columnINN;
+            
+            private global::System.Data.DataColumn columnKPP;
+            
+            private global::System.Data.DataColumn columnOKPO;
+            
+            private global::System.Data.DataColumn columnOKTMO;
+            
+            private global::System.Data.DataColumn columnNameJurClient;
+            
+            private global::System.Data.DataColumn columnDateCreate;
+            
+            private global::System.Data.DataColumn columnFamilyNameLeader;
+            
+            private global::System.Data.DataColumn columnFirstNameLeader;
+            
+            private global::System.Data.DataColumn columnPatronymicLeader;
+            
+            private global::System.Data.DataColumn columnPost;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public JurdicalClientsDataTable() {
+                this.TableName = "JurdicalClients";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal JurdicalClientsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected JurdicalClientsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn JurdicalClientIDColumn {
+                get {
+                    return this.columnJurdicalClientID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OGRNColumn {
+                get {
+                    return this.columnOGRN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn INNColumn {
+                get {
+                    return this.columnINN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn KPPColumn {
+                get {
+                    return this.columnKPP;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OKPOColumn {
+                get {
+                    return this.columnOKPO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OKTMOColumn {
+                get {
+                    return this.columnOKTMO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NameJurClientColumn {
+                get {
+                    return this.columnNameJurClient;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DateCreateColumn {
+                get {
+                    return this.columnDateCreate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FamilyNameLeaderColumn {
+                get {
+                    return this.columnFamilyNameLeader;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FirstNameLeaderColumn {
+                get {
+                    return this.columnFirstNameLeader;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PatronymicLeaderColumn {
+                get {
+                    return this.columnPatronymicLeader;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PostColumn {
+                get {
+                    return this.columnPost;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public JurdicalClientsRow this[int index] {
+                get {
+                    return ((JurdicalClientsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event JurdicalClientsRowChangeEventHandler JurdicalClientsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event JurdicalClientsRowChangeEventHandler JurdicalClientsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event JurdicalClientsRowChangeEventHandler JurdicalClientsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event JurdicalClientsRowChangeEventHandler JurdicalClientsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddJurdicalClientsRow(JurdicalClientsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public JurdicalClientsRow AddJurdicalClientsRow(string OGRN, string INN, string KPP, string OKPO, string OKTMO, string NameJurClient, System.DateTime DateCreate, string FamilyNameLeader, string FirstNameLeader, string PatronymicLeader, string Post) {
+                JurdicalClientsRow rowJurdicalClientsRow = ((JurdicalClientsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        OGRN,
+                        INN,
+                        KPP,
+                        OKPO,
+                        OKTMO,
+                        NameJurClient,
+                        DateCreate,
+                        FamilyNameLeader,
+                        FirstNameLeader,
+                        PatronymicLeader,
+                        Post};
+                rowJurdicalClientsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowJurdicalClientsRow);
+                return rowJurdicalClientsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public JurdicalClientsRow FindByJurdicalClientID(int JurdicalClientID) {
+                return ((JurdicalClientsRow)(this.Rows.Find(new object[] {
+                            JurdicalClientID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                JurdicalClientsDataTable cln = ((JurdicalClientsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new JurdicalClientsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnJurdicalClientID = base.Columns["JurdicalClientID"];
+                this.columnOGRN = base.Columns["OGRN"];
+                this.columnINN = base.Columns["INN"];
+                this.columnKPP = base.Columns["KPP"];
+                this.columnOKPO = base.Columns["OKPO"];
+                this.columnOKTMO = base.Columns["OKTMO"];
+                this.columnNameJurClient = base.Columns["NameJurClient"];
+                this.columnDateCreate = base.Columns["DateCreate"];
+                this.columnFamilyNameLeader = base.Columns["FamilyNameLeader"];
+                this.columnFirstNameLeader = base.Columns["FirstNameLeader"];
+                this.columnPatronymicLeader = base.Columns["PatronymicLeader"];
+                this.columnPost = base.Columns["Post"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnJurdicalClientID = new global::System.Data.DataColumn("JurdicalClientID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnJurdicalClientID);
+                this.columnOGRN = new global::System.Data.DataColumn("OGRN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOGRN);
+                this.columnINN = new global::System.Data.DataColumn("INN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnINN);
+                this.columnKPP = new global::System.Data.DataColumn("KPP", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKPP);
+                this.columnOKPO = new global::System.Data.DataColumn("OKPO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOKPO);
+                this.columnOKTMO = new global::System.Data.DataColumn("OKTMO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOKTMO);
+                this.columnNameJurClient = new global::System.Data.DataColumn("NameJurClient", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNameJurClient);
+                this.columnDateCreate = new global::System.Data.DataColumn("DateCreate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateCreate);
+                this.columnFamilyNameLeader = new global::System.Data.DataColumn("FamilyNameLeader", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFamilyNameLeader);
+                this.columnFirstNameLeader = new global::System.Data.DataColumn("FirstNameLeader", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFirstNameLeader);
+                this.columnPatronymicLeader = new global::System.Data.DataColumn("PatronymicLeader", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPatronymicLeader);
+                this.columnPost = new global::System.Data.DataColumn("Post", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPost);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnJurdicalClientID}, true));
+                this.columnJurdicalClientID.AutoIncrement = true;
+                this.columnJurdicalClientID.AutoIncrementSeed = -1;
+                this.columnJurdicalClientID.AutoIncrementStep = -1;
+                this.columnJurdicalClientID.AllowDBNull = false;
+                this.columnJurdicalClientID.ReadOnly = true;
+                this.columnJurdicalClientID.Unique = true;
+                this.columnOGRN.MaxLength = 50;
+                this.columnINN.MaxLength = 12;
+                this.columnKPP.MaxLength = 50;
+                this.columnOKPO.MaxLength = 50;
+                this.columnOKTMO.MaxLength = 50;
+                this.columnNameJurClient.MaxLength = 300;
+                this.columnFamilyNameLeader.MaxLength = 100;
+                this.columnFirstNameLeader.MaxLength = 100;
+                this.columnPatronymicLeader.MaxLength = 100;
+                this.columnPost.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public JurdicalClientsRow NewJurdicalClientsRow() {
+                return ((JurdicalClientsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new JurdicalClientsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(JurdicalClientsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.JurdicalClientsRowChanged != null)) {
+                    this.JurdicalClientsRowChanged(this, new JurdicalClientsRowChangeEvent(((JurdicalClientsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.JurdicalClientsRowChanging != null)) {
+                    this.JurdicalClientsRowChanging(this, new JurdicalClientsRowChangeEvent(((JurdicalClientsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.JurdicalClientsRowDeleted != null)) {
+                    this.JurdicalClientsRowDeleted(this, new JurdicalClientsRowChangeEvent(((JurdicalClientsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.JurdicalClientsRowDeleting != null)) {
+                    this.JurdicalClientsRowDeleting(this, new JurdicalClientsRowChangeEvent(((JurdicalClientsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveJurdicalClientsRow(JurdicalClientsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                CourtExpertDataSet ds = new CourtExpertDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "JurdicalClientsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class PersoneClientsDataTable : global::System.Data.TypedTableBase<PersoneClientsRow> {
+            
+            private global::System.Data.DataColumn columnPersoneClientID;
             
             private global::System.Data.DataColumn columnFamilyName;
             
@@ -3074,10 +3544,14 @@ namespace CourtExpert {
             
             private global::System.Data.DataColumn columnPassportNumber;
             
+            private global::System.Data.DataColumn columnNumberINN;
+            
+            private global::System.Data.DataColumn columnNumberSnils;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PassportInfoDataTable() {
-                this.TableName = "PassportInfo";
+            public PersoneClientsDataTable() {
+                this.TableName = "PersoneClients";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -3085,7 +3559,7 @@ namespace CourtExpert {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal PassportInfoDataTable(global::System.Data.DataTable table) {
+            internal PersoneClientsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -3102,16 +3576,16 @@ namespace CourtExpert {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected PassportInfoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected PersoneClientsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PassportIDColumn {
+            public global::System.Data.DataColumn PersoneClientIDColumn {
                 get {
-                    return this.columnPassportID;
+                    return this.columnPersoneClientID;
                 }
             }
             
@@ -3205,6 +3679,22 @@ namespace CourtExpert {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NumberINNColumn {
+                get {
+                    return this.columnNumberINN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NumberSnilsColumn {
+                get {
+                    return this.columnNumberSnils;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3214,34 +3704,34 @@ namespace CourtExpert {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PassportInfoRow this[int index] {
+            public PersoneClientsRow this[int index] {
                 get {
-                    return ((PassportInfoRow)(this.Rows[index]));
+                    return ((PersoneClientsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PassportInfoRowChangeEventHandler PassportInfoRowChanging;
+            public event PersoneClientsRowChangeEventHandler PersoneClientsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PassportInfoRowChangeEventHandler PassportInfoRowChanged;
+            public event PersoneClientsRowChangeEventHandler PersoneClientsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PassportInfoRowChangeEventHandler PassportInfoRowDeleting;
+            public event PersoneClientsRowChangeEventHandler PersoneClientsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PassportInfoRowChangeEventHandler PassportInfoRowDeleted;
+            public event PersoneClientsRowChangeEventHandler PersoneClientsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddPassportInfoRow(PassportInfoRow row) {
+            public void AddPersoneClientsRow(PersoneClientsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PassportInfoRow AddPassportInfoRow(string FamilyName, string FirstName, string Patronymic, string Sex, System.DateTime BirthDate, string BirthPlace, string PassportIssued, System.DateTime DatePassportIssue, string DepartmentCode, string PassportSeries, string PassportNumber) {
-                PassportInfoRow rowPassportInfoRow = ((PassportInfoRow)(this.NewRow()));
+            public PersoneClientsRow AddPersoneClientsRow(string FamilyName, string FirstName, string Patronymic, string Sex, System.DateTime BirthDate, string BirthPlace, string PassportIssued, System.DateTime DatePassportIssue, string DepartmentCode, string PassportSeries, string PassportNumber, string NumberINN, string NumberSnils) {
+                PersoneClientsRow rowPersoneClientsRow = ((PersoneClientsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         FamilyName,
@@ -3254,23 +3744,25 @@ namespace CourtExpert {
                         DatePassportIssue,
                         DepartmentCode,
                         PassportSeries,
-                        PassportNumber};
-                rowPassportInfoRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowPassportInfoRow);
-                return rowPassportInfoRow;
+                        PassportNumber,
+                        NumberINN,
+                        NumberSnils};
+                rowPersoneClientsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPersoneClientsRow);
+                return rowPersoneClientsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PassportInfoRow FindByPassportID(int PassportID) {
-                return ((PassportInfoRow)(this.Rows.Find(new object[] {
-                            PassportID})));
+            public PersoneClientsRow FindByPersoneClientID(int PersoneClientID) {
+                return ((PersoneClientsRow)(this.Rows.Find(new object[] {
+                            PersoneClientID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                PassportInfoDataTable cln = ((PassportInfoDataTable)(base.Clone()));
+                PersoneClientsDataTable cln = ((PersoneClientsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -3278,13 +3770,13 @@ namespace CourtExpert {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new PassportInfoDataTable();
+                return new PersoneClientsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnPassportID = base.Columns["PassportID"];
+                this.columnPersoneClientID = base.Columns["PersoneClientID"];
                 this.columnFamilyName = base.Columns["FamilyName"];
                 this.columnFirstName = base.Columns["FirstName"];
                 this.columnPatronymic = base.Columns["Patronymic"];
@@ -3296,13 +3788,15 @@ namespace CourtExpert {
                 this.columnDepartmentCode = base.Columns["DepartmentCode"];
                 this.columnPassportSeries = base.Columns["PassportSeries"];
                 this.columnPassportNumber = base.Columns["PassportNumber"];
+                this.columnNumberINN = base.Columns["NumberINN"];
+                this.columnNumberSnils = base.Columns["NumberSnils"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnPassportID = new global::System.Data.DataColumn("PassportID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPassportID);
+                this.columnPersoneClientID = new global::System.Data.DataColumn("PersoneClientID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPersoneClientID);
                 this.columnFamilyName = new global::System.Data.DataColumn("FamilyName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFamilyName);
                 this.columnFirstName = new global::System.Data.DataColumn("FirstName", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3325,14 +3819,18 @@ namespace CourtExpert {
                 base.Columns.Add(this.columnPassportSeries);
                 this.columnPassportNumber = new global::System.Data.DataColumn("PassportNumber", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPassportNumber);
+                this.columnNumberINN = new global::System.Data.DataColumn("NumberINN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumberINN);
+                this.columnNumberSnils = new global::System.Data.DataColumn("NumberSnils", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumberSnils);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnPassportID}, true));
-                this.columnPassportID.AutoIncrement = true;
-                this.columnPassportID.AutoIncrementSeed = -1;
-                this.columnPassportID.AutoIncrementStep = -1;
-                this.columnPassportID.AllowDBNull = false;
-                this.columnPassportID.ReadOnly = true;
-                this.columnPassportID.Unique = true;
+                                this.columnPersoneClientID}, true));
+                this.columnPersoneClientID.AutoIncrement = true;
+                this.columnPersoneClientID.AutoIncrementSeed = -1;
+                this.columnPersoneClientID.AutoIncrementStep = -1;
+                this.columnPersoneClientID.AllowDBNull = false;
+                this.columnPersoneClientID.ReadOnly = true;
+                this.columnPersoneClientID.Unique = true;
                 this.columnFamilyName.MaxLength = 100;
                 this.columnFirstName.MaxLength = 100;
                 this.columnPatronymic.MaxLength = 100;
@@ -3342,32 +3840,34 @@ namespace CourtExpert {
                 this.columnDepartmentCode.MaxLength = 6;
                 this.columnPassportSeries.MaxLength = 4;
                 this.columnPassportNumber.MaxLength = 6;
+                this.columnNumberINN.MaxLength = 12;
+                this.columnNumberSnils.MaxLength = 11;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PassportInfoRow NewPassportInfoRow() {
-                return ((PassportInfoRow)(this.NewRow()));
+            public PersoneClientsRow NewPersoneClientsRow() {
+                return ((PersoneClientsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new PassportInfoRow(builder);
+                return new PersoneClientsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(PassportInfoRow);
+                return typeof(PersoneClientsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.PassportInfoRowChanged != null)) {
-                    this.PassportInfoRowChanged(this, new PassportInfoRowChangeEvent(((PassportInfoRow)(e.Row)), e.Action));
+                if ((this.PersoneClientsRowChanged != null)) {
+                    this.PersoneClientsRowChanged(this, new PersoneClientsRowChangeEvent(((PersoneClientsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3375,8 +3875,8 @@ namespace CourtExpert {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.PassportInfoRowChanging != null)) {
-                    this.PassportInfoRowChanging(this, new PassportInfoRowChangeEvent(((PassportInfoRow)(e.Row)), e.Action));
+                if ((this.PersoneClientsRowChanging != null)) {
+                    this.PersoneClientsRowChanging(this, new PersoneClientsRowChangeEvent(((PersoneClientsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3384,8 +3884,8 @@ namespace CourtExpert {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.PassportInfoRowDeleted != null)) {
-                    this.PassportInfoRowDeleted(this, new PassportInfoRowChangeEvent(((PassportInfoRow)(e.Row)), e.Action));
+                if ((this.PersoneClientsRowDeleted != null)) {
+                    this.PersoneClientsRowDeleted(this, new PersoneClientsRowChangeEvent(((PersoneClientsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3393,14 +3893,14 @@ namespace CourtExpert {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.PassportInfoRowDeleting != null)) {
-                    this.PassportInfoRowDeleting(this, new PassportInfoRowChangeEvent(((PassportInfoRow)(e.Row)), e.Action));
+                if ((this.PersoneClientsRowDeleting != null)) {
+                    this.PersoneClientsRowDeleting(this, new PersoneClientsRowChangeEvent(((PersoneClientsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemovePassportInfoRow(PassportInfoRow row) {
+            public void RemovePersoneClientsRow(PersoneClientsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -3427,7 +3927,7 @@ namespace CourtExpert {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "PassportInfoDataTable";
+                attribute2.FixedValue = "PersoneClientsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4068,33 +4568,33 @@ namespace CourtExpert {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string NumberINN {
+            public int PersoneClientNumber {
                 get {
                     try {
-                        return ((string)(this[this.tableClients.NumberINNColumn]));
+                        return ((int)(this[this.tableClients.PersoneClientNumberColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'NumberINN\' в таблице \'Clients\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'PersoneClientNumber\' в таблице \'Clients\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableClients.NumberINNColumn] = value;
+                    this[this.tableClients.PersoneClientNumberColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string NumberSnils {
+            public int JurdidicalClientNumber {
                 get {
                     try {
-                        return ((string)(this[this.tableClients.NumberSnilsColumn]));
+                        return ((int)(this[this.tableClients.JurdidicalClientNumberColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'NumberSnils\' в таблице \'Clients\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'JurdidicalClientNumber\' в таблице \'Clients\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableClients.NumberSnilsColumn] = value;
+                    this[this.tableClients.JurdidicalClientNumberColumn] = value;
                 }
             }
             
@@ -4116,28 +4616,23 @@ namespace CourtExpert {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Passport {
+            public JurdicalClientsRow JurdicalClientsRow {
                 get {
-                    try {
-                        return ((int)(this[this.tableClients.PassportColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Passport\' в таблице \'Clients\' равно DBNull.", e);
-                    }
+                    return ((JurdicalClientsRow)(this.GetParentRow(this.Table.ParentRelations["JurdidicalClientNumberFK"])));
                 }
                 set {
-                    this[this.tableClients.PassportColumn] = value;
+                    this.SetParentRow(value, this.Table.ParentRelations["JurdidicalClientNumberFK"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PassportInfoRow PassportInfoRow {
+            public PersoneClientsRow PersoneClientsRow {
                 get {
-                    return ((PassportInfoRow)(this.GetParentRow(this.Table.ParentRelations["PassportFK"])));
+                    return ((PersoneClientsRow)(this.GetParentRow(this.Table.ParentRelations["PersoneClientFK"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["PassportFK"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["PersoneClientFK"]);
                 }
             }
             
@@ -4154,26 +4649,26 @@ namespace CourtExpert {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsNumberINNNull() {
-                return this.IsNull(this.tableClients.NumberINNColumn);
+            public bool IsPersoneClientNumberNull() {
+                return this.IsNull(this.tableClients.PersoneClientNumberColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetNumberINNNull() {
-                this[this.tableClients.NumberINNColumn] = global::System.Convert.DBNull;
+            public void SetPersoneClientNumberNull() {
+                this[this.tableClients.PersoneClientNumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsNumberSnilsNull() {
-                return this.IsNull(this.tableClients.NumberSnilsColumn);
+            public bool IsJurdidicalClientNumberNull() {
+                return this.IsNull(this.tableClients.JurdidicalClientNumberColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetNumberSnilsNull() {
-                this[this.tableClients.NumberSnilsColumn] = global::System.Convert.DBNull;
+            public void SetJurdidicalClientNumberNull() {
+                this[this.tableClients.JurdidicalClientNumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4186,18 +4681,6 @@ namespace CourtExpert {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTypeClientNull() {
                 this[this.tableClients.TypeClientColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPassportNull() {
-                return this.IsNull(this.tableClients.PassportColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPassportNull() {
-                this[this.tableClients.PassportColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4824,6 +5307,17 @@ namespace CourtExpert {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.Guid NumberFile {
+                get {
+                    return ((global::System.Guid)(this[this.tableFiles.NumberFileColumn]));
+                }
+                set {
+                    this[this.tableFiles.NumberFileColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public byte[] Content {
                 get {
                     try {
@@ -4865,25 +5359,372 @@ namespace CourtExpert {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class PassportInfoRow : global::System.Data.DataRow {
+        public partial class JurdicalClientsRow : global::System.Data.DataRow {
             
-            private PassportInfoDataTable tablePassportInfo;
+            private JurdicalClientsDataTable tableJurdicalClients;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal PassportInfoRow(global::System.Data.DataRowBuilder rb) : 
+            internal JurdicalClientsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablePassportInfo = ((PassportInfoDataTable)(this.Table));
+                this.tableJurdicalClients = ((JurdicalClientsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int PassportID {
+            public int JurdicalClientID {
                 get {
-                    return ((int)(this[this.tablePassportInfo.PassportIDColumn]));
+                    return ((int)(this[this.tableJurdicalClients.JurdicalClientIDColumn]));
                 }
                 set {
-                    this[this.tablePassportInfo.PassportIDColumn] = value;
+                    this[this.tableJurdicalClients.JurdicalClientIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string OGRN {
+                get {
+                    try {
+                        return ((string)(this[this.tableJurdicalClients.OGRNColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'OGRN\' в таблице \'JurdicalClients\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableJurdicalClients.OGRNColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string INN {
+                get {
+                    try {
+                        return ((string)(this[this.tableJurdicalClients.INNColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'INN\' в таблице \'JurdicalClients\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableJurdicalClients.INNColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string KPP {
+                get {
+                    try {
+                        return ((string)(this[this.tableJurdicalClients.KPPColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'KPP\' в таблице \'JurdicalClients\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableJurdicalClients.KPPColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string OKPO {
+                get {
+                    try {
+                        return ((string)(this[this.tableJurdicalClients.OKPOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'OKPO\' в таблице \'JurdicalClients\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableJurdicalClients.OKPOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string OKTMO {
+                get {
+                    try {
+                        return ((string)(this[this.tableJurdicalClients.OKTMOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'OKTMO\' в таблице \'JurdicalClients\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableJurdicalClients.OKTMOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NameJurClient {
+                get {
+                    try {
+                        return ((string)(this[this.tableJurdicalClients.NameJurClientColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'NameJurClient\' в таблице \'JurdicalClients\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableJurdicalClients.NameJurClientColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime DateCreate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableJurdicalClients.DateCreateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'DateCreate\' в таблице \'JurdicalClients\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableJurdicalClients.DateCreateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FamilyNameLeader {
+                get {
+                    try {
+                        return ((string)(this[this.tableJurdicalClients.FamilyNameLeaderColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'FamilyNameLeader\' в таблице \'JurdicalClients\' равно DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableJurdicalClients.FamilyNameLeaderColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FirstNameLeader {
+                get {
+                    try {
+                        return ((string)(this[this.tableJurdicalClients.FirstNameLeaderColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'FirstNameLeader\' в таблице \'JurdicalClients\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableJurdicalClients.FirstNameLeaderColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PatronymicLeader {
+                get {
+                    try {
+                        return ((string)(this[this.tableJurdicalClients.PatronymicLeaderColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'PatronymicLeader\' в таблице \'JurdicalClients\' равно DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableJurdicalClients.PatronymicLeaderColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Post {
+                get {
+                    try {
+                        return ((string)(this[this.tableJurdicalClients.PostColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Post\' в таблице \'JurdicalClients\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableJurdicalClients.PostColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOGRNNull() {
+                return this.IsNull(this.tableJurdicalClients.OGRNColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOGRNNull() {
+                this[this.tableJurdicalClients.OGRNColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsINNNull() {
+                return this.IsNull(this.tableJurdicalClients.INNColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetINNNull() {
+                this[this.tableJurdicalClients.INNColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsKPPNull() {
+                return this.IsNull(this.tableJurdicalClients.KPPColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetKPPNull() {
+                this[this.tableJurdicalClients.KPPColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOKPONull() {
+                return this.IsNull(this.tableJurdicalClients.OKPOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOKPONull() {
+                this[this.tableJurdicalClients.OKPOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOKTMONull() {
+                return this.IsNull(this.tableJurdicalClients.OKTMOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOKTMONull() {
+                this[this.tableJurdicalClients.OKTMOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNameJurClientNull() {
+                return this.IsNull(this.tableJurdicalClients.NameJurClientColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNameJurClientNull() {
+                this[this.tableJurdicalClients.NameJurClientColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDateCreateNull() {
+                return this.IsNull(this.tableJurdicalClients.DateCreateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDateCreateNull() {
+                this[this.tableJurdicalClients.DateCreateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFamilyNameLeaderNull() {
+                return this.IsNull(this.tableJurdicalClients.FamilyNameLeaderColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFamilyNameLeaderNull() {
+                this[this.tableJurdicalClients.FamilyNameLeaderColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFirstNameLeaderNull() {
+                return this.IsNull(this.tableJurdicalClients.FirstNameLeaderColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFirstNameLeaderNull() {
+                this[this.tableJurdicalClients.FirstNameLeaderColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPatronymicLeaderNull() {
+                return this.IsNull(this.tableJurdicalClients.PatronymicLeaderColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPatronymicLeaderNull() {
+                this[this.tableJurdicalClients.PatronymicLeaderColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPostNull() {
+                return this.IsNull(this.tableJurdicalClients.PostColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPostNull() {
+                this[this.tableJurdicalClients.PostColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ClientsRow[] GetClientsRows() {
+                if ((this.Table.ChildRelations["JurdidicalClientNumberFK"] == null)) {
+                    return new ClientsRow[0];
+                }
+                else {
+                    return ((ClientsRow[])(base.GetChildRows(this.Table.ChildRelations["JurdidicalClientNumberFK"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class PersoneClientsRow : global::System.Data.DataRow {
+            
+            private PersoneClientsDataTable tablePersoneClients;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal PersoneClientsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablePersoneClients = ((PersoneClientsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int PersoneClientID {
+                get {
+                    return ((int)(this[this.tablePersoneClients.PersoneClientIDColumn]));
+                }
+                set {
+                    this[this.tablePersoneClients.PersoneClientIDColumn] = value;
                 }
             }
             
@@ -4892,14 +5733,14 @@ namespace CourtExpert {
             public string FamilyName {
                 get {
                     try {
-                        return ((string)(this[this.tablePassportInfo.FamilyNameColumn]));
+                        return ((string)(this[this.tablePersoneClients.FamilyNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'FamilyName\' в таблице \'PassportInfo\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'FamilyName\' в таблице \'PersoneClients\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePassportInfo.FamilyNameColumn] = value;
+                    this[this.tablePersoneClients.FamilyNameColumn] = value;
                 }
             }
             
@@ -4908,14 +5749,14 @@ namespace CourtExpert {
             public string FirstName {
                 get {
                     try {
-                        return ((string)(this[this.tablePassportInfo.FirstNameColumn]));
+                        return ((string)(this[this.tablePersoneClients.FirstNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'FirstName\' в таблице \'PassportInfo\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'FirstName\' в таблице \'PersoneClients\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePassportInfo.FirstNameColumn] = value;
+                    this[this.tablePersoneClients.FirstNameColumn] = value;
                 }
             }
             
@@ -4924,14 +5765,14 @@ namespace CourtExpert {
             public string Patronymic {
                 get {
                     try {
-                        return ((string)(this[this.tablePassportInfo.PatronymicColumn]));
+                        return ((string)(this[this.tablePersoneClients.PatronymicColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Patronymic\' в таблице \'PassportInfo\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Patronymic\' в таблице \'PersoneClients\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePassportInfo.PatronymicColumn] = value;
+                    this[this.tablePersoneClients.PatronymicColumn] = value;
                 }
             }
             
@@ -4940,14 +5781,14 @@ namespace CourtExpert {
             public string Sex {
                 get {
                     try {
-                        return ((string)(this[this.tablePassportInfo.SexColumn]));
+                        return ((string)(this[this.tablePersoneClients.SexColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Sex\' в таблице \'PassportInfo\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Sex\' в таблице \'PersoneClients\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePassportInfo.SexColumn] = value;
+                    this[this.tablePersoneClients.SexColumn] = value;
                 }
             }
             
@@ -4956,14 +5797,14 @@ namespace CourtExpert {
             public System.DateTime BirthDate {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablePassportInfo.BirthDateColumn]));
+                        return ((global::System.DateTime)(this[this.tablePersoneClients.BirthDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'BirthDate\' в таблице \'PassportInfo\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'BirthDate\' в таблице \'PersoneClients\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePassportInfo.BirthDateColumn] = value;
+                    this[this.tablePersoneClients.BirthDateColumn] = value;
                 }
             }
             
@@ -4972,14 +5813,14 @@ namespace CourtExpert {
             public string BirthPlace {
                 get {
                     try {
-                        return ((string)(this[this.tablePassportInfo.BirthPlaceColumn]));
+                        return ((string)(this[this.tablePersoneClients.BirthPlaceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'BirthPlace\' в таблице \'PassportInfo\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'BirthPlace\' в таблице \'PersoneClients\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePassportInfo.BirthPlaceColumn] = value;
+                    this[this.tablePersoneClients.BirthPlaceColumn] = value;
                 }
             }
             
@@ -4988,14 +5829,14 @@ namespace CourtExpert {
             public string PassportIssued {
                 get {
                     try {
-                        return ((string)(this[this.tablePassportInfo.PassportIssuedColumn]));
+                        return ((string)(this[this.tablePersoneClients.PassportIssuedColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'PassportIssued\' в таблице \'PassportInfo\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'PassportIssued\' в таблице \'PersoneClients\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePassportInfo.PassportIssuedColumn] = value;
+                    this[this.tablePersoneClients.PassportIssuedColumn] = value;
                 }
             }
             
@@ -5004,14 +5845,15 @@ namespace CourtExpert {
             public System.DateTime DatePassportIssue {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablePassportInfo.DatePassportIssueColumn]));
+                        return ((global::System.DateTime)(this[this.tablePersoneClients.DatePassportIssueColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'DatePassportIssue\' в таблице \'PassportInfo\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'DatePassportIssue\' в таблице \'PersoneClients\' равно DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tablePassportInfo.DatePassportIssueColumn] = value;
+                    this[this.tablePersoneClients.DatePassportIssueColumn] = value;
                 }
             }
             
@@ -5020,14 +5862,14 @@ namespace CourtExpert {
             public string DepartmentCode {
                 get {
                     try {
-                        return ((string)(this[this.tablePassportInfo.DepartmentCodeColumn]));
+                        return ((string)(this[this.tablePersoneClients.DepartmentCodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'DepartmentCode\' в таблице \'PassportInfo\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'DepartmentCode\' в таблице \'PersoneClients\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePassportInfo.DepartmentCodeColumn] = value;
+                    this[this.tablePersoneClients.DepartmentCodeColumn] = value;
                 }
             }
             
@@ -5036,14 +5878,14 @@ namespace CourtExpert {
             public string PassportSeries {
                 get {
                     try {
-                        return ((string)(this[this.tablePassportInfo.PassportSeriesColumn]));
+                        return ((string)(this[this.tablePersoneClients.PassportSeriesColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'PassportSeries\' в таблице \'PassportInfo\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'PassportSeries\' в таблице \'PersoneClients\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePassportInfo.PassportSeriesColumn] = value;
+                    this[this.tablePersoneClients.PassportSeriesColumn] = value;
                 }
             }
             
@@ -5052,157 +5894,213 @@ namespace CourtExpert {
             public string PassportNumber {
                 get {
                     try {
-                        return ((string)(this[this.tablePassportInfo.PassportNumberColumn]));
+                        return ((string)(this[this.tablePersoneClients.PassportNumberColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'PassportNumber\' в таблице \'PassportInfo\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'PassportNumber\' в таблице \'PersoneClients\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePassportInfo.PassportNumberColumn] = value;
+                    this[this.tablePersoneClients.PassportNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NumberINN {
+                get {
+                    try {
+                        return ((string)(this[this.tablePersoneClients.NumberINNColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'NumberINN\' в таблице \'PersoneClients\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePersoneClients.NumberINNColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NumberSnils {
+                get {
+                    try {
+                        return ((string)(this[this.tablePersoneClients.NumberSnilsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'NumberSnils\' в таблице \'PersoneClients\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePersoneClients.NumberSnilsColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsFamilyNameNull() {
-                return this.IsNull(this.tablePassportInfo.FamilyNameColumn);
+                return this.IsNull(this.tablePersoneClients.FamilyNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetFamilyNameNull() {
-                this[this.tablePassportInfo.FamilyNameColumn] = global::System.Convert.DBNull;
+                this[this.tablePersoneClients.FamilyNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsFirstNameNull() {
-                return this.IsNull(this.tablePassportInfo.FirstNameColumn);
+                return this.IsNull(this.tablePersoneClients.FirstNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetFirstNameNull() {
-                this[this.tablePassportInfo.FirstNameColumn] = global::System.Convert.DBNull;
+                this[this.tablePersoneClients.FirstNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPatronymicNull() {
-                return this.IsNull(this.tablePassportInfo.PatronymicColumn);
+                return this.IsNull(this.tablePersoneClients.PatronymicColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPatronymicNull() {
-                this[this.tablePassportInfo.PatronymicColumn] = global::System.Convert.DBNull;
+                this[this.tablePersoneClients.PatronymicColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsSexNull() {
-                return this.IsNull(this.tablePassportInfo.SexColumn);
+                return this.IsNull(this.tablePersoneClients.SexColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSexNull() {
-                this[this.tablePassportInfo.SexColumn] = global::System.Convert.DBNull;
+                this[this.tablePersoneClients.SexColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsBirthDateNull() {
-                return this.IsNull(this.tablePassportInfo.BirthDateColumn);
+                return this.IsNull(this.tablePersoneClients.BirthDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetBirthDateNull() {
-                this[this.tablePassportInfo.BirthDateColumn] = global::System.Convert.DBNull;
+                this[this.tablePersoneClients.BirthDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsBirthPlaceNull() {
-                return this.IsNull(this.tablePassportInfo.BirthPlaceColumn);
+                return this.IsNull(this.tablePersoneClients.BirthPlaceColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetBirthPlaceNull() {
-                this[this.tablePassportInfo.BirthPlaceColumn] = global::System.Convert.DBNull;
+                this[this.tablePersoneClients.BirthPlaceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPassportIssuedNull() {
-                return this.IsNull(this.tablePassportInfo.PassportIssuedColumn);
+                return this.IsNull(this.tablePersoneClients.PassportIssuedColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPassportIssuedNull() {
-                this[this.tablePassportInfo.PassportIssuedColumn] = global::System.Convert.DBNull;
+                this[this.tablePersoneClients.PassportIssuedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsDatePassportIssueNull() {
-                return this.IsNull(this.tablePassportInfo.DatePassportIssueColumn);
+                return this.IsNull(this.tablePersoneClients.DatePassportIssueColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDatePassportIssueNull() {
-                this[this.tablePassportInfo.DatePassportIssueColumn] = global::System.Convert.DBNull;
+                this[this.tablePersoneClients.DatePassportIssueColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsDepartmentCodeNull() {
-                return this.IsNull(this.tablePassportInfo.DepartmentCodeColumn);
+                return this.IsNull(this.tablePersoneClients.DepartmentCodeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDepartmentCodeNull() {
-                this[this.tablePassportInfo.DepartmentCodeColumn] = global::System.Convert.DBNull;
+                this[this.tablePersoneClients.DepartmentCodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPassportSeriesNull() {
-                return this.IsNull(this.tablePassportInfo.PassportSeriesColumn);
+                return this.IsNull(this.tablePersoneClients.PassportSeriesColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPassportSeriesNull() {
-                this[this.tablePassportInfo.PassportSeriesColumn] = global::System.Convert.DBNull;
+                this[this.tablePersoneClients.PassportSeriesColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPassportNumberNull() {
-                return this.IsNull(this.tablePassportInfo.PassportNumberColumn);
+                return this.IsNull(this.tablePersoneClients.PassportNumberColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPassportNumberNull() {
-                this[this.tablePassportInfo.PassportNumberColumn] = global::System.Convert.DBNull;
+                this[this.tablePersoneClients.PassportNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNumberINNNull() {
+                return this.IsNull(this.tablePersoneClients.NumberINNColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNumberINNNull() {
+                this[this.tablePersoneClients.NumberINNColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNumberSnilsNull() {
+                return this.IsNull(this.tablePersoneClients.NumberSnilsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNumberSnilsNull() {
+                this[this.tablePersoneClients.NumberSnilsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ClientsRow[] GetClientsRows() {
-                if ((this.Table.ChildRelations["PassportFK"] == null)) {
+                if ((this.Table.ChildRelations["PersoneClientFK"] == null)) {
                     return new ClientsRow[0];
                 }
                 else {
-                    return ((ClientsRow[])(base.GetChildRows(this.Table.ChildRelations["PassportFK"])));
+                    return ((ClientsRow[])(base.GetChildRows(this.Table.ChildRelations["PersoneClientFK"])));
                 }
             }
         }
@@ -5663,22 +6561,56 @@ namespace CourtExpert {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class PassportInfoRowChangeEvent : global::System.EventArgs {
+        public class JurdicalClientsRowChangeEvent : global::System.EventArgs {
             
-            private PassportInfoRow eventRow;
+            private JurdicalClientsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PassportInfoRowChangeEvent(PassportInfoRow row, global::System.Data.DataRowAction action) {
+            public JurdicalClientsRowChangeEvent(JurdicalClientsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PassportInfoRow Row {
+            public JurdicalClientsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class PersoneClientsRowChangeEvent : global::System.EventArgs {
+            
+            private PersoneClientsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PersoneClientsRowChangeEvent(PersoneClientsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PersoneClientsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5887,53 +6819,44 @@ namespace CourtExpert.CourtExpertDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Clients";
             tableMapping.ColumnMappings.Add("ClientID", "ClientID");
-            tableMapping.ColumnMappings.Add("NumberINN", "NumberINN");
-            tableMapping.ColumnMappings.Add("NumberSnils", "NumberSnils");
+            tableMapping.ColumnMappings.Add("PersoneClientNumber", "PersoneClientNumber");
+            tableMapping.ColumnMappings.Add("JurdidicalClientNumber", "JurdidicalClientNumber");
             tableMapping.ColumnMappings.Add("TypeClient", "TypeClient");
-            tableMapping.ColumnMappings.Add("Passport", "Passport");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Clients] WHERE (([ClientID] = @Original_ClientID) AND ((@IsNull_NumberINN = 1 AND [NumberINN] IS NULL) OR ([NumberINN] = @Original_NumberINN)) AND ((@IsNull_NumberSnils = 1 AND [NumberSnils] IS NULL) OR ([NumberSnils] = @Original_NumberSnils)) AND ((@IsNull_TypeClient = 1 AND [TypeClient] IS NULL) OR ([TypeClient] = @Original_TypeClient)) AND ((@IsNull_Passport = 1 AND [Passport] IS NULL) OR ([Passport] = @Original_Passport)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Clients] WHERE (([ClientID] = @Original_ClientID) AND ((@IsNull_PersoneClientNumber = 1 AND [PersoneClientNumber] IS NULL) OR ([PersoneClientNumber] = @Original_PersoneClientNumber)) AND ((@IsNull_JurdidicalClientNumber = 1 AND [JurdidicalClientNumber] IS NULL) OR ([JurdidicalClientNumber] = @Original_JurdidicalClientNumber)) AND ((@IsNull_TypeClient = 1 AND [TypeClient] IS NULL) OR ([TypeClient] = @Original_TypeClient)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClientID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NumberINN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberINN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberINN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberINN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NumberSnils", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberSnils", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberSnils", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberSnils", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PersoneClientNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersoneClientNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersoneClientNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersoneClientNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_JurdidicalClientNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JurdidicalClientNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_JurdidicalClientNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JurdidicalClientNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TypeClient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeClient", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TypeClient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeClient", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Passport", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Passport", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Passport", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Passport", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Clients] ([NumberINN], [NumberSnils], [TypeClient], [Passport]" +
-                ") VALUES (@NumberINN, @NumberSnils, @TypeClient, @Passport);\r\nSELECT ClientID, N" +
-                "umberINN, NumberSnils, TypeClient, Passport FROM Clients WHERE (ClientID = SCOPE" +
-                "_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Clients] ([PersoneClientNumber], [JurdidicalClientNumber], [TypeClient]) VALUES (@PersoneClientNumber, @JurdidicalClientNumber, @TypeClient);
+SELECT ClientID, PersoneClientNumber, JurdidicalClientNumber, TypeClient FROM Clients WHERE (ClientID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberINN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberINN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberSnils", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberSnils", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersoneClientNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersoneClientNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@JurdidicalClientNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JurdidicalClientNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TypeClient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeClient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Passport", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Passport", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Clients] SET [NumberINN] = @NumberINN, [NumberSnils] = @NumberSnils, [TypeClient] = @TypeClient, [Passport] = @Passport WHERE (([ClientID] = @Original_ClientID) AND ((@IsNull_NumberINN = 1 AND [NumberINN] IS NULL) OR ([NumberINN] = @Original_NumberINN)) AND ((@IsNull_NumberSnils = 1 AND [NumberSnils] IS NULL) OR ([NumberSnils] = @Original_NumberSnils)) AND ((@IsNull_TypeClient = 1 AND [TypeClient] IS NULL) OR ([TypeClient] = @Original_TypeClient)) AND ((@IsNull_Passport = 1 AND [Passport] IS NULL) OR ([Passport] = @Original_Passport)));
-SELECT ClientID, NumberINN, NumberSnils, TypeClient, Passport FROM Clients WHERE (ClientID = @ClientID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Clients] SET [PersoneClientNumber] = @PersoneClientNumber, [JurdidicalClientNumber] = @JurdidicalClientNumber, [TypeClient] = @TypeClient WHERE (([ClientID] = @Original_ClientID) AND ((@IsNull_PersoneClientNumber = 1 AND [PersoneClientNumber] IS NULL) OR ([PersoneClientNumber] = @Original_PersoneClientNumber)) AND ((@IsNull_JurdidicalClientNumber = 1 AND [JurdidicalClientNumber] IS NULL) OR ([JurdidicalClientNumber] = @Original_JurdidicalClientNumber)) AND ((@IsNull_TypeClient = 1 AND [TypeClient] IS NULL) OR ([TypeClient] = @Original_TypeClient)));
+SELECT ClientID, PersoneClientNumber, JurdidicalClientNumber, TypeClient FROM Clients WHERE (ClientID = @ClientID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberINN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberINN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberSnils", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberSnils", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersoneClientNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersoneClientNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@JurdidicalClientNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JurdidicalClientNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TypeClient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeClient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Passport", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Passport", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClientID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NumberINN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberINN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberINN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberINN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NumberSnils", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberSnils", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberSnils", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberSnils", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PersoneClientNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersoneClientNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersoneClientNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersoneClientNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_JurdidicalClientNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JurdidicalClientNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_JurdidicalClientNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JurdidicalClientNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TypeClient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeClient", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TypeClient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeClient", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Passport", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Passport", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Passport", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Passport", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ClientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -5950,7 +6873,8 @@ SELECT ClientID, NumberINN, NumberSnils, TypeClient, Passport FROM Clients WHERE
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ClientID, NumberINN, NumberSnils, TypeClient, Passport FROM dbo.Clients";
+            this._commandCollection[0].CommandText = "SELECT ClientID, PersoneClientNumber, JurdidicalClientNumber, TypeClient FROM dbo" +
+                ".Clients";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6011,23 +6935,23 @@ SELECT ClientID, NumberINN, NumberSnils, TypeClient, Passport FROM Clients WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ClientID, string Original_NumberINN, string Original_NumberSnils, global::System.Nullable<int> Original_TypeClient, global::System.Nullable<int> Original_Passport) {
+        public virtual int Delete(int Original_ClientID, global::System.Nullable<int> Original_PersoneClientNumber, global::System.Nullable<int> Original_JurdidicalClientNumber, global::System.Nullable<int> Original_TypeClient) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ClientID));
-            if ((Original_NumberINN == null)) {
+            if ((Original_PersoneClientNumber.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_PersoneClientNumber.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_NumberINN));
+            if ((Original_JurdidicalClientNumber.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_JurdidicalClientNumber.Value));
             }
-            if ((Original_NumberSnils == null)) {
+            else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_NumberSnils));
             }
             if ((Original_TypeClient.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
@@ -6036,14 +6960,6 @@ SELECT ClientID, NumberINN, NumberSnils, TypeClient, Passport FROM Clients WHERE
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Passport.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Passport.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6065,30 +6981,24 @@ SELECT ClientID, NumberINN, NumberSnils, TypeClient, Passport FROM Clients WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string NumberINN, string NumberSnils, global::System.Nullable<int> TypeClient, global::System.Nullable<int> Passport) {
-            if ((NumberINN == null)) {
+        public virtual int Insert(global::System.Nullable<int> PersoneClientNumber, global::System.Nullable<int> JurdidicalClientNumber, global::System.Nullable<int> TypeClient) {
+            if ((PersoneClientNumber.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(PersoneClientNumber.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(NumberINN));
+            if ((JurdidicalClientNumber.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(JurdidicalClientNumber.Value));
             }
-            if ((NumberSnils == null)) {
+            else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(NumberSnils));
             }
             if ((TypeClient.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((int)(TypeClient.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Passport.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Passport.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6110,18 +7020,18 @@ SELECT ClientID, NumberINN, NumberSnils, TypeClient, Passport FROM Clients WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string NumberINN, string NumberSnils, global::System.Nullable<int> TypeClient, global::System.Nullable<int> Passport, int Original_ClientID, string Original_NumberINN, string Original_NumberSnils, global::System.Nullable<int> Original_TypeClient, global::System.Nullable<int> Original_Passport, int ClientID) {
-            if ((NumberINN == null)) {
+        public virtual int Update(global::System.Nullable<int> PersoneClientNumber, global::System.Nullable<int> JurdidicalClientNumber, global::System.Nullable<int> TypeClient, int Original_ClientID, global::System.Nullable<int> Original_PersoneClientNumber, global::System.Nullable<int> Original_JurdidicalClientNumber, global::System.Nullable<int> Original_TypeClient, int ClientID) {
+            if ((PersoneClientNumber.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(PersoneClientNumber.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(NumberINN));
+            if ((JurdidicalClientNumber.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(JurdidicalClientNumber.Value));
             }
-            if ((NumberSnils == null)) {
+            else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(NumberSnils));
             }
             if ((TypeClient.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(TypeClient.Value));
@@ -6129,46 +7039,32 @@ SELECT ClientID, NumberINN, NumberSnils, TypeClient, Passport FROM Clients WHERE
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Passport.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Passport.Value));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ClientID));
+            if ((Original_PersoneClientNumber.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_PersoneClientNumber.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ClientID));
-            if ((Original_NumberINN == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_NumberINN));
-            }
-            if ((Original_NumberSnils == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            if ((Original_JurdidicalClientNumber.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_JurdidicalClientNumber.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_NumberSnils));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             if ((Original_TypeClient.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_TypeClient.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_TypeClient.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((Original_Passport.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_Passport.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(ClientID));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(ClientID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6189,8 +7085,8 @@ SELECT ClientID, NumberINN, NumberSnils, TypeClient, Passport FROM Clients WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string NumberINN, string NumberSnils, global::System.Nullable<int> TypeClient, global::System.Nullable<int> Passport, int Original_ClientID, string Original_NumberINN, string Original_NumberSnils, global::System.Nullable<int> Original_TypeClient, global::System.Nullable<int> Original_Passport) {
-            return this.Update(NumberINN, NumberSnils, TypeClient, Passport, Original_ClientID, Original_NumberINN, Original_NumberSnils, Original_TypeClient, Original_Passport, Original_ClientID);
+        public virtual int Update(global::System.Nullable<int> PersoneClientNumber, global::System.Nullable<int> JurdidicalClientNumber, global::System.Nullable<int> TypeClient, int Original_ClientID, global::System.Nullable<int> Original_PersoneClientNumber, global::System.Nullable<int> Original_JurdidicalClientNumber, global::System.Nullable<int> Original_TypeClient) {
+            return this.Update(PersoneClientNumber, JurdidicalClientNumber, TypeClient, Original_ClientID, Original_PersoneClientNumber, Original_JurdidicalClientNumber, Original_TypeClient, Original_ClientID);
         }
     }
     
@@ -8437,26 +9333,34 @@ SELECT TypeID, NameExpertiseType FROM ExpertiseType WHERE (TypeID = @TypeID)";
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Files";
             tableMapping.ColumnMappings.Add("FilesID", "FilesID");
+            tableMapping.ColumnMappings.Add("NumberFile", "NumberFile");
             tableMapping.ColumnMappings.Add("Content", "Content");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Files] WHERE (([FilesID] = @Original_FilesID))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Files] WHERE (([FilesID] = @Original_FilesID) AND ([NumberFile" +
+                "] = @Original_NumberFile))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FilesID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FilesID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberFile", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberFile", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Files] ([Content]) VALUES (@Content);\r\nSELECT FilesID, [Conten" +
-                "t] FROM Files WHERE (FilesID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Files] ([NumberFile], [Content]) VALUES (@NumberFile, @Content" +
+                ");\r\nSELECT FilesID, NumberFile, [Content] FROM Files WHERE (FilesID = SCOPE_IDEN" +
+                "TITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberFile", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberFile", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Content", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Content", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Files] SET [Content] = @Content WHERE (([FilesID] = @Original_Files" +
-                "ID));\r\nSELECT FilesID, [Content] FROM Files WHERE (FilesID = @FilesID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Files] SET [NumberFile] = @NumberFile, [Content] = @Content WHERE (" +
+                "([FilesID] = @Original_FilesID) AND ([NumberFile] = @Original_NumberFile));\r\nSEL" +
+                "ECT FilesID, NumberFile, [Content] FROM Files WHERE (FilesID = @FilesID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberFile", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberFile", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Content", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Content", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FilesID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FilesID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberFile", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberFile", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilesID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FilesID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -8473,7 +9377,7 @@ SELECT TypeID, NameExpertiseType FROM ExpertiseType WHERE (TypeID = @TypeID)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT FilesID, Content FROM dbo.Files";
+            this._commandCollection[0].CommandText = "SELECT FilesID, NumberFile, Content FROM dbo.Files";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8534,8 +9438,9 @@ SELECT TypeID, NameExpertiseType FROM ExpertiseType WHERE (TypeID = @TypeID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_FilesID) {
+        public virtual int Delete(int Original_FilesID, System.Guid Original_NumberFile) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_FilesID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.Guid)(Original_NumberFile));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8556,12 +9461,13 @@ SELECT TypeID, NameExpertiseType FROM ExpertiseType WHERE (TypeID = @TypeID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(byte[] Content) {
+        public virtual int Insert(System.Guid NumberFile, byte[] Content) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((System.Guid)(NumberFile));
             if ((Content == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((byte[])(Content));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((byte[])(Content));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8583,15 +9489,17 @@ SELECT TypeID, NameExpertiseType FROM ExpertiseType WHERE (TypeID = @TypeID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(byte[] Content, int Original_FilesID, int FilesID) {
+        public virtual int Update(System.Guid NumberFile, byte[] Content, int Original_FilesID, System.Guid Original_NumberFile, int FilesID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((System.Guid)(NumberFile));
             if ((Content == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((byte[])(Content));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((byte[])(Content));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_FilesID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(FilesID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_FilesID));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.Guid)(Original_NumberFile));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(FilesID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8612,8 +9520,8 @@ SELECT TypeID, NameExpertiseType FROM ExpertiseType WHERE (TypeID = @TypeID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(byte[] Content, int Original_FilesID) {
-            return this.Update(Content, Original_FilesID, Original_FilesID);
+        public virtual int Update(System.Guid NumberFile, byte[] Content, int Original_FilesID, System.Guid Original_NumberFile) {
+            return this.Update(NumberFile, Content, Original_FilesID, Original_NumberFile, Original_FilesID);
         }
     }
     
@@ -8626,7 +9534,7 @@ SELECT TypeID, NameExpertiseType FROM ExpertiseType WHERE (TypeID = @TypeID)";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class PassportInfoTableAdapter : global::System.ComponentModel.Component {
+    public partial class JurdicalClientsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -8640,7 +9548,7 @@ SELECT TypeID, NameExpertiseType FROM ExpertiseType WHERE (TypeID = @TypeID)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public PassportInfoTableAdapter() {
+        public JurdicalClientsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -8737,8 +9645,747 @@ SELECT TypeID, NameExpertiseType FROM ExpertiseType WHERE (TypeID = @TypeID)";
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "PassportInfo";
-            tableMapping.ColumnMappings.Add("PassportID", "PassportID");
+            tableMapping.DataSetTable = "JurdicalClients";
+            tableMapping.ColumnMappings.Add("JurdicalClientID", "JurdicalClientID");
+            tableMapping.ColumnMappings.Add("OGRN", "OGRN");
+            tableMapping.ColumnMappings.Add("INN", "INN");
+            tableMapping.ColumnMappings.Add("KPP", "KPP");
+            tableMapping.ColumnMappings.Add("OKPO", "OKPO");
+            tableMapping.ColumnMappings.Add("OKTMO", "OKTMO");
+            tableMapping.ColumnMappings.Add("NameJurClient", "NameJurClient");
+            tableMapping.ColumnMappings.Add("DateCreate", "DateCreate");
+            tableMapping.ColumnMappings.Add("FamilyNameLeader", "FamilyNameLeader");
+            tableMapping.ColumnMappings.Add("FirstNameLeader", "FirstNameLeader");
+            tableMapping.ColumnMappings.Add("PatronymicLeader", "PatronymicLeader");
+            tableMapping.ColumnMappings.Add("Post", "Post");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[JurdicalClients] WHERE (([JurdicalClientID] = @Original_JurdicalClientID) AND ((@IsNull_OGRN = 1 AND [OGRN] IS NULL) OR ([OGRN] = @Original_OGRN)) AND ((@IsNull_INN = 1 AND [INN] IS NULL) OR ([INN] = @Original_INN)) AND ((@IsNull_KPP = 1 AND [KPP] IS NULL) OR ([KPP] = @Original_KPP)) AND ((@IsNull_OKPO = 1 AND [OKPO] IS NULL) OR ([OKPO] = @Original_OKPO)) AND ((@IsNull_OKTMO = 1 AND [OKTMO] IS NULL) OR ([OKTMO] = @Original_OKTMO)) AND ((@IsNull_NameJurClient = 1 AND [NameJurClient] IS NULL) OR ([NameJurClient] = @Original_NameJurClient)) AND ((@IsNull_DateCreate = 1 AND [DateCreate] IS NULL) OR ([DateCreate] = @Original_DateCreate)) AND ((@IsNull_FamilyNameLeader = 1 AND [FamilyNameLeader] IS NULL) OR ([FamilyNameLeader] = @Original_FamilyNameLeader)) AND ((@IsNull_FirstNameLeader = 1 AND [FirstNameLeader] IS NULL) OR ([FirstNameLeader] = @Original_FirstNameLeader)) AND ((@IsNull_PatronymicLeader = 1 AND [PatronymicLeader] IS NULL) OR ([PatronymicLeader] = @Original_PatronymicLeader)) AND ((@IsNull_Post = 1 AND [Post] IS NULL) OR ([Post] = @Original_Post)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_JurdicalClientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JurdicalClientID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OGRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OGRN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OGRN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OGRN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_INN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "INN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_INN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "INN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_KPP", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KPP", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KPP", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KPP", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OKPO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OKPO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OKPO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OKPO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OKTMO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OKTMO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OKTMO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OKTMO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NameJurClient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameJurClient", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NameJurClient", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameJurClient", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DateCreate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateCreate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateCreate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateCreate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FamilyNameLeader", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FamilyNameLeader", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FamilyNameLeader", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FamilyNameLeader", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FirstNameLeader", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstNameLeader", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FirstNameLeader", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstNameLeader", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PatronymicLeader", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatronymicLeader", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatronymicLeader", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatronymicLeader", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Post", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Post", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[JurdicalClients] ([OGRN], [INN], [KPP], [OKPO], [OKTMO], [NameJurClient], [DateCreate], [FamilyNameLeader], [FirstNameLeader], [PatronymicLeader], [Post]) VALUES (@OGRN, @INN, @KPP, @OKPO, @OKTMO, @NameJurClient, @DateCreate, @FamilyNameLeader, @FirstNameLeader, @PatronymicLeader, @Post);
+SELECT JurdicalClientID, OGRN, INN, KPP, OKPO, OKTMO, NameJurClient, DateCreate, FamilyNameLeader, FirstNameLeader, PatronymicLeader, Post FROM JurdicalClients WHERE (JurdicalClientID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OGRN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OGRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@INN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "INN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KPP", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KPP", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OKPO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OKPO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OKTMO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OKTMO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NameJurClient", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameJurClient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateCreate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateCreate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FamilyNameLeader", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FamilyNameLeader", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstNameLeader", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstNameLeader", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatronymicLeader", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatronymicLeader", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Post", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[JurdicalClients] SET [OGRN] = @OGRN, [INN] = @INN, [KPP] = @KPP, [O" +
+                "KPO] = @OKPO, [OKTMO] = @OKTMO, [NameJurClient] = @NameJurClient, [DateCreate] =" +
+                " @DateCreate, [FamilyNameLeader] = @FamilyNameLeader, [FirstNameLeader] = @First" +
+                "NameLeader, [PatronymicLeader] = @PatronymicLeader, [Post] = @Post WHERE (([Jurd" +
+                "icalClientID] = @Original_JurdicalClientID) AND ((@IsNull_OGRN = 1 AND [OGRN] IS" +
+                " NULL) OR ([OGRN] = @Original_OGRN)) AND ((@IsNull_INN = 1 AND [INN] IS NULL) OR" +
+                " ([INN] = @Original_INN)) AND ((@IsNull_KPP = 1 AND [KPP] IS NULL) OR ([KPP] = @" +
+                "Original_KPP)) AND ((@IsNull_OKPO = 1 AND [OKPO] IS NULL) OR ([OKPO] = @Original" +
+                "_OKPO)) AND ((@IsNull_OKTMO = 1 AND [OKTMO] IS NULL) OR ([OKTMO] = @Original_OKT" +
+                "MO)) AND ((@IsNull_NameJurClient = 1 AND [NameJurClient] IS NULL) OR ([NameJurCl" +
+                "ient] = @Original_NameJurClient)) AND ((@IsNull_DateCreate = 1 AND [DateCreate] " +
+                "IS NULL) OR ([DateCreate] = @Original_DateCreate)) AND ((@IsNull_FamilyNameLeade" +
+                "r = 1 AND [FamilyNameLeader] IS NULL) OR ([FamilyNameLeader] = @Original_FamilyN" +
+                "ameLeader)) AND ((@IsNull_FirstNameLeader = 1 AND [FirstNameLeader] IS NULL) OR " +
+                "([FirstNameLeader] = @Original_FirstNameLeader)) AND ((@IsNull_PatronymicLeader " +
+                "= 1 AND [PatronymicLeader] IS NULL) OR ([PatronymicLeader] = @Original_Patronymi" +
+                "cLeader)) AND ((@IsNull_Post = 1 AND [Post] IS NULL) OR ([Post] = @Original_Post" +
+                ")));\r\nSELECT JurdicalClientID, OGRN, INN, KPP, OKPO, OKTMO, NameJurClient, DateC" +
+                "reate, FamilyNameLeader, FirstNameLeader, PatronymicLeader, Post FROM JurdicalCl" +
+                "ients WHERE (JurdicalClientID = @JurdicalClientID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OGRN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OGRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@INN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "INN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KPP", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KPP", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OKPO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OKPO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OKTMO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OKTMO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NameJurClient", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameJurClient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateCreate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateCreate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FamilyNameLeader", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FamilyNameLeader", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstNameLeader", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstNameLeader", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatronymicLeader", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatronymicLeader", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Post", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_JurdicalClientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JurdicalClientID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OGRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OGRN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OGRN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OGRN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_INN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "INN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_INN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "INN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_KPP", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KPP", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KPP", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KPP", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OKPO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OKPO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OKPO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OKPO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OKTMO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OKTMO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OKTMO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OKTMO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NameJurClient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameJurClient", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NameJurClient", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameJurClient", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DateCreate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateCreate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateCreate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateCreate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FamilyNameLeader", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FamilyNameLeader", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FamilyNameLeader", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FamilyNameLeader", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FirstNameLeader", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstNameLeader", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FirstNameLeader", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstNameLeader", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PatronymicLeader", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatronymicLeader", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatronymicLeader", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatronymicLeader", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Post", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Post", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@JurdicalClientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "JurdicalClientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::CourtExpert.Properties.Settings.Default.CourtExpertConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT JurdicalClientID, OGRN, INN, KPP, OKPO, OKTMO, NameJurClient, DateCreate, " +
+                "FamilyNameLeader, FirstNameLeader, PatronymicLeader, Post FROM dbo.JurdicalClien" +
+                "ts";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(CourtExpertDataSet.JurdicalClientsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual CourtExpertDataSet.JurdicalClientsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            CourtExpertDataSet.JurdicalClientsDataTable dataTable = new CourtExpertDataSet.JurdicalClientsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(CourtExpertDataSet.JurdicalClientsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(CourtExpertDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "JurdicalClients");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_JurdicalClientID, string Original_OGRN, string Original_INN, string Original_KPP, string Original_OKPO, string Original_OKTMO, string Original_NameJurClient, global::System.Nullable<global::System.DateTime> Original_DateCreate, string Original_FamilyNameLeader, string Original_FirstNameLeader, string Original_PatronymicLeader, string Original_Post) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_JurdicalClientID));
+            if ((Original_OGRN == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_OGRN));
+            }
+            if ((Original_INN == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_INN));
+            }
+            if ((Original_KPP == null)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_KPP));
+            }
+            if ((Original_OKPO == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_OKPO));
+            }
+            if ((Original_OKTMO == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_OKTMO));
+            }
+            if ((Original_NameJurClient == null)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_NameJurClient));
+            }
+            if ((Original_DateCreate.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((System.DateTime)(Original_DateCreate.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FamilyNameLeader == null)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_FamilyNameLeader));
+            }
+            if ((Original_FirstNameLeader == null)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_FirstNameLeader));
+            }
+            if ((Original_PatronymicLeader == null)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_PatronymicLeader));
+            }
+            if ((Original_Post == null)) {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_Post));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string OGRN, string INN, string KPP, string OKPO, string OKTMO, string NameJurClient, global::System.Nullable<global::System.DateTime> DateCreate, string FamilyNameLeader, string FirstNameLeader, string PatronymicLeader, string Post) {
+            if ((OGRN == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(OGRN));
+            }
+            if ((INN == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(INN));
+            }
+            if ((KPP == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(KPP));
+            }
+            if ((OKPO == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(OKPO));
+            }
+            if ((OKTMO == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(OKTMO));
+            }
+            if ((NameJurClient == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(NameJurClient));
+            }
+            if ((DateCreate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(DateCreate.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((FamilyNameLeader == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(FamilyNameLeader));
+            }
+            if ((FirstNameLeader == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(FirstNameLeader));
+            }
+            if ((PatronymicLeader == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(PatronymicLeader));
+            }
+            if ((Post == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(Post));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string OGRN, 
+                    string INN, 
+                    string KPP, 
+                    string OKPO, 
+                    string OKTMO, 
+                    string NameJurClient, 
+                    global::System.Nullable<global::System.DateTime> DateCreate, 
+                    string FamilyNameLeader, 
+                    string FirstNameLeader, 
+                    string PatronymicLeader, 
+                    string Post, 
+                    int Original_JurdicalClientID, 
+                    string Original_OGRN, 
+                    string Original_INN, 
+                    string Original_KPP, 
+                    string Original_OKPO, 
+                    string Original_OKTMO, 
+                    string Original_NameJurClient, 
+                    global::System.Nullable<global::System.DateTime> Original_DateCreate, 
+                    string Original_FamilyNameLeader, 
+                    string Original_FirstNameLeader, 
+                    string Original_PatronymicLeader, 
+                    string Original_Post, 
+                    int JurdicalClientID) {
+            if ((OGRN == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(OGRN));
+            }
+            if ((INN == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(INN));
+            }
+            if ((KPP == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(KPP));
+            }
+            if ((OKPO == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(OKPO));
+            }
+            if ((OKTMO == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(OKTMO));
+            }
+            if ((NameJurClient == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(NameJurClient));
+            }
+            if ((DateCreate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(DateCreate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((FamilyNameLeader == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(FamilyNameLeader));
+            }
+            if ((FirstNameLeader == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(FirstNameLeader));
+            }
+            if ((PatronymicLeader == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(PatronymicLeader));
+            }
+            if ((Post == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Post));
+            }
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_JurdicalClientID));
+            if ((Original_OGRN == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_OGRN));
+            }
+            if ((Original_INN == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_INN));
+            }
+            if ((Original_KPP == null)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_KPP));
+            }
+            if ((Original_OKPO == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_OKPO));
+            }
+            if ((Original_OKTMO == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_OKTMO));
+            }
+            if ((Original_NameJurClient == null)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_NameJurClient));
+            }
+            if ((Original_DateCreate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(Original_DateCreate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FamilyNameLeader == null)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_FamilyNameLeader));
+            }
+            if ((Original_FirstNameLeader == null)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_FirstNameLeader));
+            }
+            if ((Original_PatronymicLeader == null)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_PatronymicLeader));
+            }
+            if ((Original_Post == null)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_Post));
+            }
+            this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(JurdicalClientID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string OGRN, 
+                    string INN, 
+                    string KPP, 
+                    string OKPO, 
+                    string OKTMO, 
+                    string NameJurClient, 
+                    global::System.Nullable<global::System.DateTime> DateCreate, 
+                    string FamilyNameLeader, 
+                    string FirstNameLeader, 
+                    string PatronymicLeader, 
+                    string Post, 
+                    int Original_JurdicalClientID, 
+                    string Original_OGRN, 
+                    string Original_INN, 
+                    string Original_KPP, 
+                    string Original_OKPO, 
+                    string Original_OKTMO, 
+                    string Original_NameJurClient, 
+                    global::System.Nullable<global::System.DateTime> Original_DateCreate, 
+                    string Original_FamilyNameLeader, 
+                    string Original_FirstNameLeader, 
+                    string Original_PatronymicLeader, 
+                    string Original_Post) {
+            return this.Update(OGRN, INN, KPP, OKPO, OKTMO, NameJurClient, DateCreate, FamilyNameLeader, FirstNameLeader, PatronymicLeader, Post, Original_JurdicalClientID, Original_OGRN, Original_INN, Original_KPP, Original_OKPO, Original_OKTMO, Original_NameJurClient, Original_DateCreate, Original_FamilyNameLeader, Original_FirstNameLeader, Original_PatronymicLeader, Original_Post, Original_JurdicalClientID);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class PersoneClientsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public PersoneClientsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "PersoneClients";
+            tableMapping.ColumnMappings.Add("PersoneClientID", "PersoneClientID");
             tableMapping.ColumnMappings.Add("FamilyName", "FamilyName");
             tableMapping.ColumnMappings.Add("FirstName", "FirstName");
             tableMapping.ColumnMappings.Add("Patronymic", "Patronymic");
@@ -8750,12 +10397,14 @@ SELECT TypeID, NameExpertiseType FROM ExpertiseType WHERE (TypeID = @TypeID)";
             tableMapping.ColumnMappings.Add("DepartmentCode", "DepartmentCode");
             tableMapping.ColumnMappings.Add("PassportSeries", "PassportSeries");
             tableMapping.ColumnMappings.Add("PassportNumber", "PassportNumber");
+            tableMapping.ColumnMappings.Add("NumberINN", "NumberINN");
+            tableMapping.ColumnMappings.Add("NumberSnils", "NumberSnils");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[PassportInfo] WHERE (([PassportID] = @Original_PassportID) AND ((@IsNull_FamilyName = 1 AND [FamilyName] IS NULL) OR ([FamilyName] = @Original_FamilyName)) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstName)) AND ((@IsNull_Patronymic = 1 AND [Patronymic] IS NULL) OR ([Patronymic] = @Original_Patronymic)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] = @Original_Sex)) AND ((@IsNull_BirthDate = 1 AND [BirthDate] IS NULL) OR ([BirthDate] = @Original_BirthDate)) AND ((@IsNull_BirthPlace = 1 AND [BirthPlace] IS NULL) OR ([BirthPlace] = @Original_BirthPlace)) AND ((@IsNull_PassportIssued = 1 AND [PassportIssued] IS NULL) OR ([PassportIssued] = @Original_PassportIssued)) AND ((@IsNull_DatePassportIssue = 1 AND [DatePassportIssue] IS NULL) OR ([DatePassportIssue] = @Original_DatePassportIssue)) AND ((@IsNull_DepartmentCode = 1 AND [DepartmentCode] IS NULL) OR ([DepartmentCode] = @Original_DepartmentCode)) AND ((@IsNull_PassportSeries = 1 AND [PassportSeries] IS NULL) OR ([PassportSeries] = @Original_PassportSeries)) AND ((@IsNull_PassportNumber = 1 AND [PassportNumber] IS NULL) OR ([PassportNumber] = @Original_PassportNumber)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[PersoneClients] WHERE (([PersoneClientID] = @Original_PersoneClientID) AND ((@IsNull_FamilyName = 1 AND [FamilyName] IS NULL) OR ([FamilyName] = @Original_FamilyName)) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstName)) AND ((@IsNull_Patronymic = 1 AND [Patronymic] IS NULL) OR ([Patronymic] = @Original_Patronymic)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] = @Original_Sex)) AND ((@IsNull_BirthDate = 1 AND [BirthDate] IS NULL) OR ([BirthDate] = @Original_BirthDate)) AND ((@IsNull_BirthPlace = 1 AND [BirthPlace] IS NULL) OR ([BirthPlace] = @Original_BirthPlace)) AND ((@IsNull_PassportIssued = 1 AND [PassportIssued] IS NULL) OR ([PassportIssued] = @Original_PassportIssued)) AND ((@IsNull_DatePassportIssue = 1 AND [DatePassportIssue] IS NULL) OR ([DatePassportIssue] = @Original_DatePassportIssue)) AND ((@IsNull_DepartmentCode = 1 AND [DepartmentCode] IS NULL) OR ([DepartmentCode] = @Original_DepartmentCode)) AND ((@IsNull_PassportSeries = 1 AND [PassportSeries] IS NULL) OR ([PassportSeries] = @Original_PassportSeries)) AND ((@IsNull_PassportNumber = 1 AND [PassportNumber] IS NULL) OR ([PassportNumber] = @Original_PassportNumber)) AND ((@IsNull_NumberINN = 1 AND [NumberINN] IS NULL) OR ([NumberINN] = @Original_NumberINN)) AND ((@IsNull_NumberSnils = 1 AND [NumberSnils] IS NULL) OR ([NumberSnils] = @Original_NumberSnils)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PassportID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PassportID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersoneClientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersoneClientID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FamilyName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FamilyName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FamilyName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FamilyName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FirstName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -8778,10 +10427,14 @@ SELECT TypeID, NameExpertiseType FROM ExpertiseType WHERE (TypeID = @TypeID)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PassportSeries", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PassportSeries", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PassportNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PassportNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PassportNumber", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PassportNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NumberINN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberINN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberINN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberINN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NumberSnils", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberSnils", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberSnils", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberSnils", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[PassportInfo] ([FamilyName], [FirstName], [Patronymic], [Sex], [BirthDate], [BirthPlace], [PassportIssued], [DatePassportIssue], [DepartmentCode], [PassportSeries], [PassportNumber]) VALUES (@FamilyName, @FirstName, @Patronymic, @Sex, @BirthDate, @BirthPlace, @PassportIssued, @DatePassportIssue, @DepartmentCode, @PassportSeries, @PassportNumber);
-SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace, PassportIssued, DatePassportIssue, DepartmentCode, PassportSeries, PassportNumber FROM PassportInfo WHERE (PassportID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[PersoneClients] ([FamilyName], [FirstName], [Patronymic], [Sex], [BirthDate], [BirthPlace], [PassportIssued], [DatePassportIssue], [DepartmentCode], [PassportSeries], [PassportNumber], [NumberINN], [NumberSnils]) VALUES (@FamilyName, @FirstName, @Patronymic, @Sex, @BirthDate, @BirthPlace, @PassportIssued, @DatePassportIssue, @DepartmentCode, @PassportSeries, @PassportNumber, @NumberINN, @NumberSnils);
+SELECT PersoneClientID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace, PassportIssued, DatePassportIssue, DepartmentCode, PassportSeries, PassportNumber, NumberINN, NumberSnils FROM PersoneClients WHERE (PersoneClientID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FamilyName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FamilyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -8794,30 +10447,36 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DepartmentCode", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DepartmentCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PassportSeries", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PassportSeries", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PassportNumber", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PassportNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberINN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberINN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberSnils", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberSnils", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[PassportInfo] SET [FamilyName] = @FamilyName, [FirstName] = @FirstN" +
-                "ame, [Patronymic] = @Patronymic, [Sex] = @Sex, [BirthDate] = @BirthDate, [BirthP" +
-                "lace] = @BirthPlace, [PassportIssued] = @PassportIssued, [DatePassportIssue] = @" +
-                "DatePassportIssue, [DepartmentCode] = @DepartmentCode, [PassportSeries] = @Passp" +
-                "ortSeries, [PassportNumber] = @PassportNumber WHERE (([PassportID] = @Original_P" +
-                "assportID) AND ((@IsNull_FamilyName = 1 AND [FamilyName] IS NULL) OR ([FamilyNam" +
-                "e] = @Original_FamilyName)) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL)" +
-                " OR ([FirstName] = @Original_FirstName)) AND ((@IsNull_Patronymic = 1 AND [Patro" +
-                "nymic] IS NULL) OR ([Patronymic] = @Original_Patronymic)) AND ((@IsNull_Sex = 1 " +
-                "AND [Sex] IS NULL) OR ([Sex] = @Original_Sex)) AND ((@IsNull_BirthDate = 1 AND [" +
-                "BirthDate] IS NULL) OR ([BirthDate] = @Original_BirthDate)) AND ((@IsNull_BirthP" +
-                "lace = 1 AND [BirthPlace] IS NULL) OR ([BirthPlace] = @Original_BirthPlace)) AND" +
-                " ((@IsNull_PassportIssued = 1 AND [PassportIssued] IS NULL) OR ([PassportIssued]" +
-                " = @Original_PassportIssued)) AND ((@IsNull_DatePassportIssue = 1 AND [DatePassp" +
-                "ortIssue] IS NULL) OR ([DatePassportIssue] = @Original_DatePassportIssue)) AND (" +
-                "(@IsNull_DepartmentCode = 1 AND [DepartmentCode] IS NULL) OR ([DepartmentCode] =" +
-                " @Original_DepartmentCode)) AND ((@IsNull_PassportSeries = 1 AND [PassportSeries" +
-                "] IS NULL) OR ([PassportSeries] = @Original_PassportSeries)) AND ((@IsNull_Passp" +
-                "ortNumber = 1 AND [PassportNumber] IS NULL) OR ([PassportNumber] = @Original_Pas" +
-                "sportNumber)));\r\nSELECT PassportID, FamilyName, FirstName, Patronymic, Sex, Birt" +
-                "hDate, BirthPlace, PassportIssued, DatePassportIssue, DepartmentCode, PassportSe" +
-                "ries, PassportNumber FROM PassportInfo WHERE (PassportID = @PassportID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[PersoneClients] SET [FamilyName] = @FamilyName, [FirstName] = @Firs" +
+                "tName, [Patronymic] = @Patronymic, [Sex] = @Sex, [BirthDate] = @BirthDate, [Birt" +
+                "hPlace] = @BirthPlace, [PassportIssued] = @PassportIssued, [DatePassportIssue] =" +
+                " @DatePassportIssue, [DepartmentCode] = @DepartmentCode, [PassportSeries] = @Pas" +
+                "sportSeries, [PassportNumber] = @PassportNumber, [NumberINN] = @NumberINN, [Numb" +
+                "erSnils] = @NumberSnils WHERE (([PersoneClientID] = @Original_PersoneClientID) A" +
+                "ND ((@IsNull_FamilyName = 1 AND [FamilyName] IS NULL) OR ([FamilyName] = @Origin" +
+                "al_FamilyName)) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstN" +
+                "ame] = @Original_FirstName)) AND ((@IsNull_Patronymic = 1 AND [Patronymic] IS NU" +
+                "LL) OR ([Patronymic] = @Original_Patronymic)) AND ((@IsNull_Sex = 1 AND [Sex] IS" +
+                " NULL) OR ([Sex] = @Original_Sex)) AND ((@IsNull_BirthDate = 1 AND [BirthDate] I" +
+                "S NULL) OR ([BirthDate] = @Original_BirthDate)) AND ((@IsNull_BirthPlace = 1 AND" +
+                " [BirthPlace] IS NULL) OR ([BirthPlace] = @Original_BirthPlace)) AND ((@IsNull_P" +
+                "assportIssued = 1 AND [PassportIssued] IS NULL) OR ([PassportIssued] = @Original" +
+                "_PassportIssued)) AND ((@IsNull_DatePassportIssue = 1 AND [DatePassportIssue] IS" +
+                " NULL) OR ([DatePassportIssue] = @Original_DatePassportIssue)) AND ((@IsNull_Dep" +
+                "artmentCode = 1 AND [DepartmentCode] IS NULL) OR ([DepartmentCode] = @Original_D" +
+                "epartmentCode)) AND ((@IsNull_PassportSeries = 1 AND [PassportSeries] IS NULL) O" +
+                "R ([PassportSeries] = @Original_PassportSeries)) AND ((@IsNull_PassportNumber = " +
+                "1 AND [PassportNumber] IS NULL) OR ([PassportNumber] = @Original_PassportNumber)" +
+                ") AND ((@IsNull_NumberINN = 1 AND [NumberINN] IS NULL) OR ([NumberINN] = @Origin" +
+                "al_NumberINN)) AND ((@IsNull_NumberSnils = 1 AND [NumberSnils] IS NULL) OR ([Num" +
+                "berSnils] = @Original_NumberSnils)));\r\nSELECT PersoneClientID, FamilyName, First" +
+                "Name, Patronymic, Sex, BirthDate, BirthPlace, PassportIssued, DatePassportIssue," +
+                " DepartmentCode, PassportSeries, PassportNumber, NumberINN, NumberSnils FROM Per" +
+                "soneClients WHERE (PersoneClientID = @PersoneClientID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FamilyName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FamilyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -8830,7 +10489,9 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DepartmentCode", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DepartmentCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PassportSeries", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PassportSeries", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PassportNumber", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PassportNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PassportID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PassportID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberINN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberINN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberSnils", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberSnils", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersoneClientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersoneClientID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FamilyName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FamilyName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FamilyName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FamilyName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FirstName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -8853,7 +10514,11 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PassportSeries", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PassportSeries", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PassportNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PassportNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PassportNumber", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PassportNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PassportID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PassportID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NumberINN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberINN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberINN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberINN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NumberSnils", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberSnils", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberSnils", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberSnils", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersoneClientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PersoneClientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8869,9 +10534,9 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace," +
-                " PassportIssued, DatePassportIssue, DepartmentCode, PassportSeries, PassportNumb" +
-                "er FROM dbo.PassportInfo";
+            this._commandCollection[0].CommandText = "SELECT PersoneClientID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthP" +
+                "lace, PassportIssued, DatePassportIssue, DepartmentCode, PassportSeries, Passpor" +
+                "tNumber, NumberINN, NumberSnils FROM dbo.PersoneClients";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8879,7 +10544,7 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(CourtExpertDataSet.PassportInfoDataTable dataTable) {
+        public virtual int Fill(CourtExpertDataSet.PersoneClientsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -8892,9 +10557,9 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual CourtExpertDataSet.PassportInfoDataTable GetData() {
+        public virtual CourtExpertDataSet.PersoneClientsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            CourtExpertDataSet.PassportInfoDataTable dataTable = new CourtExpertDataSet.PassportInfoDataTable();
+            CourtExpertDataSet.PersoneClientsDataTable dataTable = new CourtExpertDataSet.PersoneClientsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -8902,7 +10567,7 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(CourtExpertDataSet.PassportInfoDataTable dataTable) {
+        public virtual int Update(CourtExpertDataSet.PersoneClientsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -8910,7 +10575,7 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(CourtExpertDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "PassportInfo");
+            return this.Adapter.Update(dataSet, "PersoneClients");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8932,8 +10597,8 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PassportID, string Original_FamilyName, string Original_FirstName, string Original_Patronymic, string Original_Sex, global::System.Nullable<global::System.DateTime> Original_BirthDate, string Original_BirthPlace, string Original_PassportIssued, global::System.Nullable<global::System.DateTime> Original_DatePassportIssue, string Original_DepartmentCode, string Original_PassportSeries, string Original_PassportNumber) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PassportID));
+        public virtual int Delete(int Original_PersoneClientID, string Original_FamilyName, string Original_FirstName, string Original_Patronymic, string Original_Sex, global::System.Nullable<global::System.DateTime> Original_BirthDate, string Original_BirthPlace, string Original_PassportIssued, global::System.Nullable<global::System.DateTime> Original_DatePassportIssue, string Original_DepartmentCode, string Original_PassportSeries, string Original_PassportNumber, string Original_NumberINN, string Original_NumberSnils) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PersoneClientID));
             if ((Original_FamilyName == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -9022,6 +10687,22 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_PassportNumber));
             }
+            if ((Original_NumberINN == null)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_NumberINN));
+            }
+            if ((Original_NumberSnils == null)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_NumberSnils));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9042,7 +10723,7 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string FamilyName, string FirstName, string Patronymic, string Sex, global::System.Nullable<global::System.DateTime> BirthDate, string BirthPlace, string PassportIssued, global::System.Nullable<global::System.DateTime> DatePassportIssue, string DepartmentCode, string PassportSeries, string PassportNumber) {
+        public virtual int Insert(string FamilyName, string FirstName, string Patronymic, string Sex, global::System.Nullable<global::System.DateTime> BirthDate, string BirthPlace, string PassportIssued, global::System.Nullable<global::System.DateTime> DatePassportIssue, string DepartmentCode, string PassportSeries, string PassportNumber, string NumberINN, string NumberSnils) {
             if ((FamilyName == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -9109,6 +10790,18 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
             else {
                 this.Adapter.InsertCommand.Parameters[10].Value = ((string)(PassportNumber));
             }
+            if ((NumberINN == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(NumberINN));
+            }
+            if ((NumberSnils == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(NumberSnils));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9141,7 +10834,9 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
                     string DepartmentCode, 
                     string PassportSeries, 
                     string PassportNumber, 
-                    int Original_PassportID, 
+                    string NumberINN, 
+                    string NumberSnils, 
+                    int Original_PersoneClientID, 
                     string Original_FamilyName, 
                     string Original_FirstName, 
                     string Original_Patronymic, 
@@ -9153,7 +10848,9 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
                     string Original_DepartmentCode, 
                     string Original_PassportSeries, 
                     string Original_PassportNumber, 
-                    int PassportID) {
+                    string Original_NumberINN, 
+                    string Original_NumberSnils, 
+                    int PersoneClientID) {
             if ((FamilyName == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -9220,96 +10917,124 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(PassportNumber));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_PassportID));
-            if ((Original_FamilyName == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            if ((NumberINN == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_FamilyName));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(NumberINN));
             }
-            if ((Original_FirstName == null)) {
+            if ((NumberSnils == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(NumberSnils));
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_PersoneClientID));
+            if ((Original_FamilyName == null)) {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_FirstName));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_FamilyName));
             }
-            if ((Original_Patronymic == null)) {
+            if ((Original_FirstName == null)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Patronymic));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_FirstName));
             }
-            if ((Original_Sex == null)) {
+            if ((Original_Patronymic == null)) {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Sex));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Patronymic));
             }
-            if ((Original_BirthDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_BirthDate.Value));
-            }
-            else {
+            if ((Original_Sex == null)) {
                 this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((Original_BirthPlace == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Sex));
+            }
+            if ((Original_BirthDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_BirthDate.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_BirthPlace));
-            }
-            if ((Original_PassportIssued == null)) {
+            if ((Original_BirthPlace == null)) {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_PassportIssued));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_BirthPlace));
             }
-            if ((Original_DatePassportIssue.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((System.DateTime)(Original_DatePassportIssue.Value));
-            }
-            else {
+            if ((Original_PassportIssued == null)) {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            if ((Original_DepartmentCode == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_PassportIssued));
+            }
+            if ((Original_DatePassportIssue.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((System.DateTime)(Original_DatePassportIssue.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_DepartmentCode));
-            }
-            if ((Original_PassportSeries == null)) {
+            if ((Original_DepartmentCode == null)) {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_PassportSeries));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_DepartmentCode));
             }
-            if ((Original_PassportNumber == null)) {
+            if ((Original_PassportSeries == null)) {
                 this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_PassportNumber));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_PassportSeries));
             }
-            this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(PassportID));
+            if ((Original_PassportNumber == null)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_PassportNumber));
+            }
+            if ((Original_NumberINN == null)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_NumberINN));
+            }
+            if ((Original_NumberSnils == null)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_NumberSnils));
+            }
+            this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(PersoneClientID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9342,7 +11067,9 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
                     string DepartmentCode, 
                     string PassportSeries, 
                     string PassportNumber, 
-                    int Original_PassportID, 
+                    string NumberINN, 
+                    string NumberSnils, 
+                    int Original_PersoneClientID, 
                     string Original_FamilyName, 
                     string Original_FirstName, 
                     string Original_Patronymic, 
@@ -9353,8 +11080,10 @@ SELECT PassportID, FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace
                     global::System.Nullable<global::System.DateTime> Original_DatePassportIssue, 
                     string Original_DepartmentCode, 
                     string Original_PassportSeries, 
-                    string Original_PassportNumber) {
-            return this.Update(FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace, PassportIssued, DatePassportIssue, DepartmentCode, PassportSeries, PassportNumber, Original_PassportID, Original_FamilyName, Original_FirstName, Original_Patronymic, Original_Sex, Original_BirthDate, Original_BirthPlace, Original_PassportIssued, Original_DatePassportIssue, Original_DepartmentCode, Original_PassportSeries, Original_PassportNumber, Original_PassportID);
+                    string Original_PassportNumber, 
+                    string Original_NumberINN, 
+                    string Original_NumberSnils) {
+            return this.Update(FamilyName, FirstName, Patronymic, Sex, BirthDate, BirthPlace, PassportIssued, DatePassportIssue, DepartmentCode, PassportSeries, PassportNumber, NumberINN, NumberSnils, Original_PersoneClientID, Original_FamilyName, Original_FirstName, Original_Patronymic, Original_Sex, Original_BirthDate, Original_BirthPlace, Original_PassportIssued, Original_DatePassportIssue, Original_DepartmentCode, Original_PassportSeries, Original_PassportNumber, Original_NumberINN, Original_NumberSnils, Original_PersoneClientID);
         }
     }
     
@@ -10069,7 +11798,9 @@ SELECT SelectedGroupID, SelectedEmployee, EmployeeGroup FROM SelectedGroup WHERE
         
         private FilesTableAdapter _filesTableAdapter;
         
-        private PassportInfoTableAdapter _passportInfoTableAdapter;
+        private JurdicalClientsTableAdapter _jurdicalClientsTableAdapter;
+        
+        private PersoneClientsTableAdapter _personeClientsTableAdapter;
         
         private RolesTableAdapter _rolesTableAdapter;
         
@@ -10207,12 +11938,26 @@ SELECT SelectedGroupID, SelectedEmployee, EmployeeGroup FROM SelectedGroup WHERE
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public PassportInfoTableAdapter PassportInfoTableAdapter {
+        public JurdicalClientsTableAdapter JurdicalClientsTableAdapter {
             get {
-                return this._passportInfoTableAdapter;
+                return this._jurdicalClientsTableAdapter;
             }
             set {
-                this._passportInfoTableAdapter = value;
+                this._jurdicalClientsTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public PersoneClientsTableAdapter PersoneClientsTableAdapter {
+            get {
+                return this._personeClientsTableAdapter;
+            }
+            set {
+                this._personeClientsTableAdapter = value;
             }
         }
         
@@ -10295,9 +12040,13 @@ SELECT SelectedGroupID, SelectedEmployee, EmployeeGroup FROM SelectedGroup WHERE
                             && (this._filesTableAdapter.Connection != null))) {
                     return this._filesTableAdapter.Connection;
                 }
-                if (((this._passportInfoTableAdapter != null) 
-                            && (this._passportInfoTableAdapter.Connection != null))) {
-                    return this._passportInfoTableAdapter.Connection;
+                if (((this._jurdicalClientsTableAdapter != null) 
+                            && (this._jurdicalClientsTableAdapter.Connection != null))) {
+                    return this._jurdicalClientsTableAdapter.Connection;
+                }
+                if (((this._personeClientsTableAdapter != null) 
+                            && (this._personeClientsTableAdapter.Connection != null))) {
+                    return this._personeClientsTableAdapter.Connection;
                 }
                 if (((this._rolesTableAdapter != null) 
                             && (this._rolesTableAdapter.Connection != null))) {
@@ -10344,7 +12093,10 @@ SELECT SelectedGroupID, SelectedEmployee, EmployeeGroup FROM SelectedGroup WHERE
                 if ((this._filesTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._passportInfoTableAdapter != null)) {
+                if ((this._jurdicalClientsTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._personeClientsTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._rolesTableAdapter != null)) {
@@ -10400,12 +12152,21 @@ SELECT SelectedGroupID, SelectedEmployee, EmployeeGroup FROM SelectedGroup WHERE
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._passportInfoTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.PassportInfo.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._jurdicalClientsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.JurdicalClients.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._passportInfoTableAdapter.Update(updatedRows));
+                    result = (result + this._jurdicalClientsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._personeClientsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PersoneClients.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._personeClientsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -10505,11 +12266,19 @@ SELECT SelectedGroupID, SelectedEmployee, EmployeeGroup FROM SelectedGroup WHERE
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._passportInfoTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.PassportInfo.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._jurdicalClientsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.JurdicalClients.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._passportInfoTableAdapter.Update(addedRows));
+                    result = (result + this._jurdicalClientsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._personeClientsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PersoneClients.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._personeClientsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -10619,11 +12388,19 @@ SELECT SelectedGroupID, SelectedEmployee, EmployeeGroup FROM SelectedGroup WHERE
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._passportInfoTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.PassportInfo.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._personeClientsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PersoneClients.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._passportInfoTableAdapter.Update(deletedRows));
+                    result = (result + this._personeClientsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._jurdicalClientsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.JurdicalClients.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._jurdicalClientsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -10738,8 +12515,13 @@ SELECT SelectedGroupID, SelectedEmployee, EmployeeGroup FROM SelectedGroup WHERE
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._passportInfoTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._passportInfoTableAdapter.Connection) == false))) {
+            if (((this._jurdicalClientsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._jurdicalClientsTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
+            if (((this._personeClientsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._personeClientsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -10857,13 +12639,22 @@ SELECT SelectedGroupID, SelectedEmployee, EmployeeGroup FROM SelectedGroup WHERE
                         adaptersWithAcceptChangesDuringUpdate.Add(this._filesTableAdapter.Adapter);
                     }
                 }
-                if ((this._passportInfoTableAdapter != null)) {
-                    revertConnections.Add(this._passportInfoTableAdapter, this._passportInfoTableAdapter.Connection);
-                    this._passportInfoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._passportInfoTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._passportInfoTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._passportInfoTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._passportInfoTableAdapter.Adapter);
+                if ((this._jurdicalClientsTableAdapter != null)) {
+                    revertConnections.Add(this._jurdicalClientsTableAdapter, this._jurdicalClientsTableAdapter.Connection);
+                    this._jurdicalClientsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._jurdicalClientsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._jurdicalClientsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._jurdicalClientsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._jurdicalClientsTableAdapter.Adapter);
+                    }
+                }
+                if ((this._personeClientsTableAdapter != null)) {
+                    revertConnections.Add(this._personeClientsTableAdapter, this._personeClientsTableAdapter.Connection);
+                    this._personeClientsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._personeClientsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._personeClientsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._personeClientsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._personeClientsTableAdapter.Adapter);
                     }
                 }
                 if ((this._rolesTableAdapter != null)) {
@@ -10974,9 +12765,13 @@ SELECT SelectedGroupID, SelectedEmployee, EmployeeGroup FROM SelectedGroup WHERE
                     this._filesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._filesTableAdapter]));
                     this._filesTableAdapter.Transaction = null;
                 }
-                if ((this._passportInfoTableAdapter != null)) {
-                    this._passportInfoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._passportInfoTableAdapter]));
-                    this._passportInfoTableAdapter.Transaction = null;
+                if ((this._jurdicalClientsTableAdapter != null)) {
+                    this._jurdicalClientsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._jurdicalClientsTableAdapter]));
+                    this._jurdicalClientsTableAdapter.Transaction = null;
+                }
+                if ((this._personeClientsTableAdapter != null)) {
+                    this._personeClientsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._personeClientsTableAdapter]));
+                    this._personeClientsTableAdapter.Transaction = null;
                 }
                 if ((this._rolesTableAdapter != null)) {
                     this._rolesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._rolesTableAdapter]));

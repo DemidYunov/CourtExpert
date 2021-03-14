@@ -50,8 +50,8 @@ namespace CourtExpert.UsersWindow
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
             SqlCommand command = new SqlCommand(sql, connection);
-            command.Parameters.Add("@LoginEmployee", SqlDbType.VarChar).Value = TextBoxLogin.Text;
-            command.Parameters.Add("@PasswordEmployee", SqlDbType.VarChar).Value = PasswordBox.Password;
+            //command.Parameters.Add("@LoginEmployee", SqlDbType.VarChar).Value = TextBoxLogin.Text;
+            //command.Parameters.Add("@PasswordEmployee", SqlDbType.VarChar).Value = PasswordBox.Password;
             command.ExecuteNonQuery();
             connection.Close();
         }

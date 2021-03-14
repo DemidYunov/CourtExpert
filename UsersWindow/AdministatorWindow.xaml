@@ -56,7 +56,6 @@
                         <DataGridTextColumn Header="Фамилия" Binding="{Binding id}"/>
                         <DataGridTextColumn Header="Отчество" Binding="{Binding id}"/>
                         <DataGridTextColumn Header="Специальность" Binding="{Binding id}"/>
-                        <DataGridTextColumn Header="Список работ" Binding="{Binding id}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </DockPanel>
